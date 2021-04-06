@@ -172,10 +172,10 @@
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="AggregatedSolutionType"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.aggregation.AggregatedSolutionType">[docs]</a><span class="k">class</span> <span class="nc">AggregatedSolutionType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;An enumeration.&quot;&quot;&quot;</span>
@@ -191,16 +191,16 @@
 <span class="sd">    See an example of how to use it in &quot;TolokaClient.aggregate_solutions_by_pool&quot;.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        type ( Optional[AggregatedSolutionType]): Aggregation type.</span>
+<span class="sd">        type (Optional[AggregatedSolutionType]): Aggregation type.</span>
 <span class="sd">    		WEIGHTED_DYNAMIC_OVERLAP - Aggregation of responses in a pool with dynamic overlap.</span>
 <span class="sd">    		DAWID_SKENE - Dawid-Skene aggregation model.</span>
 <span class="sd">    		    A. Philip Dawid and Allan M. Skene. 1979.</span>
 <span class="sd">    		    Maximum Likelihood Estimation of Observer Error-Rates Using the EM Algorithm.</span>
 <span class="sd">    		    Journal of the Royal Statistical Society. Series C (Applied Statistics), Vol. 28, 1 (1979), 20–28.</span>
 <span class="sd">    		    https://doi.org/10.2307/2346806</span>
-<span class="sd">        pool_id ( Optional[str]): In which pool to aggregate the results.</span>
-<span class="sd">        answer_weight_skill_id ( Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
-<span class="sd">        fields ( Optional[List[Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
+<span class="sd">        pool_id (Optional[str]): In which pool to aggregate the results.</span>
+<span class="sd">        answer_weight_skill_id (Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
+<span class="sd">        fields (Optional[List[Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
 <span class="sd">    		must have a limited number of response options.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -223,8 +223,8 @@
     <span class="sd">&quot;&quot;&quot;Base class for run aggregation on a single task</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        task_id ( Optional[str]): Answers for which task to aggregate.</span>
-<span class="sd">        pool_id ( Optional[str]): In which pool this task.</span>
+<span class="sd">        task_id (Optional[str]): Answers for which task to aggregate.</span>
+<span class="sd">        pool_id (Optional[str]): In which pool this task.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">task_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pool_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -240,8 +240,8 @@
     <span class="sd">&quot;&quot;&quot;Request that allows you to run WeightedDynamicOverlap aggregation on a single task</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        answer_weight_skill_id ( Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
-<span class="sd">        fields ( Optional[List[Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
+<span class="sd">        answer_weight_skill_id (Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
+<span class="sd">        fields (Optional[List[Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
 <span class="sd">    		must have a limited number of response options.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -266,10 +266,10 @@
     <span class="sd">&quot;&quot;&quot;Aggregated response to the task</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        pool_id ( Optional[str]): In which pool the results were aggregated.</span>
-<span class="sd">        task_id ( Optional[str]): The answer for which task was aggregated.</span>
-<span class="sd">        confidence ( Optional[float]): Confidence in the aggregate response.</span>
-<span class="sd">        output_values ( Optional[Dict[str, Any]]): Output data fields and aggregate response.</span>
+<span class="sd">        pool_id (Optional[str]): In which pool the results were aggregated.</span>
+<span class="sd">        task_id (Optional[str]): The answer for which task was aggregated.</span>
+<span class="sd">        confidence (Optional[float]): Confidence in the aggregate response.</span>
+<span class="sd">        output_values (Optional[Dict[str, Any]]): Output data fields and aggregate response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">pool_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">confidence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

@@ -169,11 +169,11 @@
 <span class="kn">from</span> <span class="nn">toloka.client.quality_control</span> <span class="kn">import</span> <span class="n">QualityControl</span>
 <span class="kn">from</span> <span class="nn">toloka.client.task_distribution_function</span> <span class="kn">import</span> <span class="n">TaskDistributionFunction</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">overload</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">overload</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="Pool"><a class="viewcode-back" href="../../../source/toloka.client.pool.html#toloka.client.pool.Pool">[docs]</a><span class="k">class</span> <span class="nc">Pool</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A set of tasks that are issued and checked according to the same rules within the project</span>
@@ -183,36 +183,36 @@
 <span class="sd">    Tasks, golden tasks and assignments are related to a pool.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        project_id ( Optional[str]): ID of the project that the pool was created for.</span>
-<span class="sd">        private_name ( Optional[str]): Name of the pool (only visible to the requester).</span>
-<span class="sd">        may_contain_adult_content ( Optional[bool]): Whether the tasks contain adult content.</span>
-<span class="sd">        reward_per_assignment ( Optional[float]): Payment per task suite in U.S. dollars. For cents, use the dot (&quot;.&quot;) as the separator.</span>
+<span class="sd">        project_id (Optional[str]): ID of the project that the pool was created for.</span>
+<span class="sd">        private_name (Optional[str]): Name of the pool (only visible to the requester).</span>
+<span class="sd">        may_contain_adult_content (Optional[bool]): Whether the tasks contain adult content.</span>
+<span class="sd">        reward_per_assignment (Optional[float]): Payment per task suite in U.S. dollars. For cents, use the dot (&quot;.&quot;) as the separator.</span>
 <span class="sd">    		The minimum payment is $0.01.</span>
 <span class="sd">    		Only training and control tasks can be uploaded to zero-price pools.</span>
-<span class="sd">        assignment_max_duration_seconds ( Optional[int]): The time allowed for completing a task suite, in seconds.</span>
+<span class="sd">        assignment_max_duration_seconds (Optional[int]): The time allowed for completing a task suite, in seconds.</span>
 <span class="sd">    		Tasks not completed within this time are reassigned to other users.</span>
 <span class="sd">    		We recommend allowing no more than 60 seconds per task suite (including the time for page loading</span>
 <span class="sd">    		and sending responses).</span>
-<span class="sd">        defaults ( Optional[Defaults]): Settings that are applied by default when uploading new task suites to a pool.</span>
-<span class="sd">        will_expire ( Optional[datetime]): The date and time in UTC when the pool should be closed (even if all the task suites haven&#39;t</span>
+<span class="sd">        defaults (Optional[Defaults]): Settings that are applied by default when uploading new task suites to a pool.</span>
+<span class="sd">        will_expire (Optional[datetime]): The date and time in UTC when the pool should be closed (even if all the task suites haven&#39;t</span>
 <span class="sd">    		been completed).</span>
-<span class="sd">        private_comment ( Optional[str]): Comments on the pool (only visible to the requester).</span>
-<span class="sd">        public_description ( Optional[str]): Description for users. If it is filled in, the text will be displayed instead of</span>
+<span class="sd">        private_comment (Optional[str]): Comments on the pool (only visible to the requester).</span>
+<span class="sd">        public_description (Optional[str]): Description for users. If it is filled in, the text will be displayed instead of</span>
 <span class="sd">    		the project&#39;s public_description in the list of tasks for performers.</span>
-<span class="sd">        public_instructions ( Optional[str]): Optional[str]</span>
-<span class="sd">        auto_close_after_complete_delay_seconds ( Optional[int]): Waiting time (in seconds) before automatic closure of the pool</span>
+<span class="sd">        public_instructions (Optional[str]): Optional[str]</span>
+<span class="sd">        auto_close_after_complete_delay_seconds (Optional[int]): Waiting time (in seconds) before automatic closure of the pool</span>
 <span class="sd">    		after all tasks are completed. Minimum — 0, maximum — 259200 seconds (three days).</span>
 <span class="sd">    		Use it if:</span>
 <span class="sd">    		    * Your data processing is close to real time.</span>
 <span class="sd">    		    * You need an open pool where you upload tasks.</span>
 <span class="sd">    		    * Dynamic overlap is enabled in the pool (dynamic_overlap_config).</span>
-<span class="sd">        dynamic_pricing_config ( Optional[DynamicPricingConfig]): The dynamic pricing settings.</span>
-<span class="sd">        auto_accept_solutions ( Optional[bool]): Whether tasks must be checked manually:</span>
+<span class="sd">        dynamic_pricing_config (Optional[DynamicPricingConfig]): The dynamic pricing settings.</span>
+<span class="sd">        auto_accept_solutions (Optional[bool]): Whether tasks must be checked manually:</span>
 <span class="sd">    		* True - Automatic task acceptance (manual checking isn&#39;t necessary).</span>
 <span class="sd">    		* False - The requester will check the tasks.</span>
-<span class="sd">        auto_accept_period_day ( Optional[int]): Optional[int]</span>
-<span class="sd">        assignments_issuing_config ( Optional[AssignmentsIssuingConfig]): Settings for assigning tasks in the pool.</span>
-<span class="sd">        priority ( Optional[int]): The priority of the pool in relation to other pools in the project with the same task</span>
+<span class="sd">        auto_accept_period_day (Optional[int]): Optional[int]</span>
+<span class="sd">        assignments_issuing_config (Optional[AssignmentsIssuingConfig]): Settings for assigning tasks in the pool.</span>
+<span class="sd">        priority (Optional[int]): The priority of the pool in relation to other pools in the project with the same task</span>
 <span class="sd">    		price and set of filters. Users are assigned tasks with a higher priority first.</span>
 <span class="sd">    		Possible values: from -100 to 100.</span>
 <span class="sd">    		If the project has multiple pools, the order for completing them depends on the parameters:</span>
@@ -221,21 +221,21 @@
 <span class="sd">    		    You can change the order for completing the pools.</span>
 <span class="sd">    		* Pools with different filter settings and/or a different price per task are sent out for completion</span>
 <span class="sd">    		    when the pool opens.</span>
-<span class="sd">        filter ( Optional[FilterCondition]): Settings for user selection filters.</span>
-<span class="sd">        quality_control ( Optional[QualityControl]): Settings for quality control rules and the ID of the pool with training tasks.</span>
-<span class="sd">        dynamic_overlap_config ( Optional[DynamicOverlapConfig]): Dynamic overlap setting. Allows you to change the overlap depending on</span>
+<span class="sd">        filter (Optional[FilterCondition]): Settings for user selection filters.</span>
+<span class="sd">        quality_control (Optional[QualityControl]): Settings for quality control rules and the ID of the pool with training tasks.</span>
+<span class="sd">        dynamic_overlap_config (Optional[DynamicOverlapConfig]): Dynamic overlap setting. Allows you to change the overlap depending on</span>
 <span class="sd">    		how well the performers handle the task.</span>
-<span class="sd">        mixer_config ( Optional[MixerConfig]): Parameters for automatically creating a task suite (“smart mixing”).</span>
-<span class="sd">        training_config ( Optional[TrainingConfig]): Optional[TrainingConfig]</span>
-<span class="sd">        metadata ( Optional[Dict[str, List[str]]]): Optional[Dict[str, List[str]]]</span>
-<span class="sd">        owner ( Optional[Owner]): Optional[Owner]</span>
-<span class="sd">        id ( Optional[str]): Pool ID.  Read only field.</span>
-<span class="sd">        status ( Optional[Status]): Status of the pool. Read only field.</span>
-<span class="sd">        last_close_reason ( Optional[CloseReason]): The reason for closing the pool the last time. Read only field.</span>
-<span class="sd">        created ( Optional[datetime]): When this pool was created. Read only field.</span>
-<span class="sd">        last_started ( Optional[datetime]): The date and time when the pool was last started. Read only field.</span>
-<span class="sd">        last_stopped ( Optional[datetime]): The date and time when the pool was last stopped. Read only field.</span>
-<span class="sd">        type ( Optional[Type]): Types of pool. Read only field.</span>
+<span class="sd">        mixer_config (Optional[MixerConfig]): Parameters for automatically creating a task suite (“smart mixing”).</span>
+<span class="sd">        training_config (Optional[TrainingConfig]): Optional[TrainingConfig]</span>
+<span class="sd">        metadata (Optional[Dict[str, List[str]]]): Optional[Dict[str, List[str]]]</span>
+<span class="sd">        owner (Optional[Owner]): Optional[Owner]</span>
+<span class="sd">        id (Optional[str]): Pool ID.  Read only field.</span>
+<span class="sd">        status (Optional[Status]): Status of the pool. Read only field.</span>
+<span class="sd">        last_close_reason (Optional[CloseReason]): The reason for closing the pool the last time. Read only field.</span>
+<span class="sd">        created (Optional[datetime]): When this pool was created. Read only field.</span>
+<span class="sd">        last_started (Optional[datetime]): The date and time when the pool was last started. Read only field.</span>
+<span class="sd">        last_stopped (Optional[datetime]): The date and time when the pool was last stopped. Read only field.</span>
+<span class="sd">        type (Optional[Type]): Types of pool. Read only field.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How to create a new pool in a project.</span>
@@ -262,7 +262,7 @@
         <span class="sd">&quot;&quot;&quot;Settings for assigning tasks in the pool.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            issue_task_suites_in_creation_order ( Optional[bool]): For pools that don&#39;t use “smart mixing”.</span>
+<span class="sd">            issue_task_suites_in_creation_order (Optional[bool]): For pools that don&#39;t use “smart mixing”.</span>
 <span class="sd">        		Assign task suites in the order in which they were uploaded. For example, for a pool with an</span>
 <span class="sd">        		overlap of 5, the first task suite is assigned to five users, then the second task suite, and so on.</span>
 <span class="sd">        		This parameter is available when the project has &quot;assignments_issuing_type&quot;: &quot;AUTOMATED&quot;.</span>
@@ -300,9 +300,9 @@
         <span class="sd">&quot;&quot;&quot;Settings that are applied by default when uploading new task suites to a pool.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            default_overlap_for_new_task_suites ( Optional[int]): The overlap for task suites that are uploaded to the pool</span>
+<span class="sd">            default_overlap_for_new_task_suites (Optional[int]): The overlap for task suites that are uploaded to the pool</span>
 <span class="sd">        		(used if the allow_defaults=True parameter is set when uploading).</span>
-<span class="sd">            default_overlap_for_new_tasks ( Optional[int]): The overlap for tasks that are uploaded to the pool</span>
+<span class="sd">            default_overlap_for_new_tasks (Optional[int]): The overlap for tasks that are uploaded to the pool</span>
 <span class="sd">        		(used if the allow_defaults=True parameter is set when uploading).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -451,7 +451,7 @@
 <span class="sd">    To do this use TolokaClient.patch_pool(). You can use expanded version, then pass &quot;priority&quot; directly to &quot;patch_pool&quot;.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        priority ( Optional[int]): The priority of the pool in relation to other pools in the project with the same task</span>
+<span class="sd">        priority (Optional[int]): The priority of the pool in relation to other pools in the project with the same task</span>
 <span class="sd">    		price and set of filters. Users are assigned tasks with a higher priority first.</span>
 <span class="sd">    		Possible values: from -100 to 100.</span>
 

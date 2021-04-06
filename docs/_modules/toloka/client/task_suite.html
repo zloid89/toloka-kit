@@ -164,11 +164,11 @@
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.parameter</span> <span class="kn">import</span> <span class="n">Parameters</span>
 <span class="kn">from</span> <span class="nn">toloka.client.task</span> <span class="kn">import</span> <span class="n">BaseTask</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">overload</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">overload</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
 <div class="viewcode-block" id="TaskSuite"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.task_suite.TaskSuite">[docs]</a><span class="k">class</span> <span class="nc">TaskSuite</span><span class="p">(</span><span class="n">InfiniteOverlapParametersMixin</span><span class="p">,</span> <span class="n">BaseTolokaObject</span><span class="p">):</span>
@@ -178,28 +178,28 @@
 <span class="sd">    Performers receive exactly one TaskSuite when they take on your task.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        pool_id ( Optional[str]): The ID of the pool that task suite are uploaded to.</span>
-<span class="sd">        tasks ( Optional[List[BaseTask]]): Data for the tasks.</span>
-<span class="sd">        reserved_for ( Optional[List[str]]): IDs of users who will have access to the task suite.</span>
-<span class="sd">        unavailable_for ( Optional[List[str]]): IDs of users who shouldn&#39;t have access to the task suite.</span>
-<span class="sd">        issuing_order_override ( Optional[float]): The priority of a task suite among other sets in the pool. Defines the order in which</span>
+<span class="sd">        pool_id (Optional[str]): The ID of the pool that task suite are uploaded to.</span>
+<span class="sd">        tasks (Optional[List[BaseTask]]): Data for the tasks.</span>
+<span class="sd">        reserved_for (Optional[List[str]]): IDs of users who will have access to the task suite.</span>
+<span class="sd">        unavailable_for (Optional[List[str]]): IDs of users who shouldn&#39;t have access to the task suite.</span>
+<span class="sd">        issuing_order_override (Optional[float]): The priority of a task suite among other sets in the pool. Defines the order in which</span>
 <span class="sd">    		task suites are assigned to performers. The larger the parameter value, the higher the priority.</span>
 <span class="sd">    		This parameter can be used if the pool has issue_task_suites_in_creation_order: true.</span>
 <span class="sd">    		Allowed values: from -99999.99999 to 99999.99999.</span>
-<span class="sd">        mixed ( Optional[bool]): Type of operation for creating a task suite:</span>
+<span class="sd">        mixed (Optional[bool]): Type of operation for creating a task suite:</span>
 <span class="sd">    		* True - Automatically with the &quot;smart mixing&quot; option (for details, see Yandex.Toloka requester&#39;s guide).</span>
 <span class="sd">    		* False - Manually.</span>
-<span class="sd">        traits_all_of ( Optional[List[str]]): </span>
-<span class="sd">        traits_any_of ( Optional[List[str]]): </span>
-<span class="sd">        traits_none_of_any ( Optional[List[str]]): </span>
-<span class="sd">        longitude ( Optional[float]): The longitude of the point on the map for the task suite.</span>
-<span class="sd">        latitude ( Optional[float]): The latitude of the point on the map for the task suite.</span>
-<span class="sd">        id ( Optional[str]): ID of a task suite. Read only field.</span>
-<span class="sd">        remaining_overlap ( Optional[int]): How many times will this Task Suite be issued to performers. Read only field.</span>
-<span class="sd">        automerged ( Optional[bool]): The task suite flag is created after task merging. Read Only field. Value:</span>
+<span class="sd">        traits_all_of (Optional[List[str]]): </span>
+<span class="sd">        traits_any_of (Optional[List[str]]): </span>
+<span class="sd">        traits_none_of_any (Optional[List[str]]): </span>
+<span class="sd">        longitude (Optional[float]): The longitude of the point on the map for the task suite.</span>
+<span class="sd">        latitude (Optional[float]): The latitude of the point on the map for the task suite.</span>
+<span class="sd">        id (Optional[str]): ID of a task suite. Read only field.</span>
+<span class="sd">        remaining_overlap (Optional[int]): How many times will this Task Suite be issued to performers. Read only field.</span>
+<span class="sd">        automerged (Optional[bool]): The task suite flag is created after task merging. Read Only field. Value:</span>
 <span class="sd">    		* True - The task suite is generated as a result of merging identical tasks.</span>
 <span class="sd">    		* False - A standard task suite created by &quot;smart mixing&quot; or by the requester.</span>
-<span class="sd">        created ( Optional[datetime]): The UTC date and time when the task suite was created. Read Only field.</span>
+<span class="sd">        created (Optional[datetime]): The UTC date and time when the task suite was created. Read Only field.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">infinite_overlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pool_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tasks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">BaseTask</span><span class="p">]]</span> <span class="o">=</span> <span class="o">...</span><span class="p">,</span> <span class="n">reserved_for</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">unavailable_for</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">issuing_order_override</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">mixed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">traits_all_of</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">traits_any_of</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">traits_none_of_any</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">longitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">latitude</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">remaining_overlap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">automerged</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -215,16 +215,16 @@
     <span class="sd">&quot;&quot;&quot;Parameters for TaskSuite creation controlling</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        operation_id ( Optional[UUID]): Operation ID for asynchronous loading of task suites.</span>
-<span class="sd">        skip_invalid_items ( Optional[bool]): Validation parameters:</span>
+<span class="sd">        operation_id (Optional[UUID]): Operation ID for asynchronous loading of task suites.</span>
+<span class="sd">        skip_invalid_items (Optional[bool]): Validation parameters:</span>
 <span class="sd">    		* True - Create the task suites that passed validation. Skip the rest of the task suites.</span>
 <span class="sd">    		* False - If at least one of the task suites didn&#39;t pass validation, stop the operation and</span>
 <span class="sd">    		    don&#39;t create the task suites.</span>
-<span class="sd">        allow_defaults ( Optional[bool]): Overlap settings:</span>
+<span class="sd">        allow_defaults (Optional[bool]): Overlap settings:</span>
 <span class="sd">    		* True - Use the overlap that is set in the pool parameters.</span>
 <span class="sd">    		* False - Use the overlap that is set in the task suite parameters (in the overlap field).</span>
-<span class="sd">        open_pool ( Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
-<span class="sd">        async_mode ( Optional[bool]): How the request is processed:</span>
+<span class="sd">        open_pool (Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
+<span class="sd">        async_mode (Optional[bool]): How the request is processed:</span>
 <span class="sd">    		* True — deferred. The query results in an asynchronous operation running in the background.</span>
 <span class="sd">    		    Answer contains information about the operation (start and end time, status, number of sets).</span>
 <span class="sd">    		* False — synchronous. Answer contains information about the generated sets of tasks.</span>
@@ -253,11 +253,11 @@
     <span class="sd">&quot;&quot;&quot;Parameters for changing specific TaskSuite</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        issuing_order_override ( Optional[float]): The priority of a task suite among other sets in the pool. Defines the order in which</span>
+<span class="sd">        issuing_order_override (Optional[float]): The priority of a task suite among other sets in the pool. Defines the order in which</span>
 <span class="sd">    		task suites are assigned to performers. The larger the parameter value, the higher the priority.</span>
 <span class="sd">    		This parameter can be used if the pool has issue_task_suites_in_creation_order: true.</span>
 <span class="sd">    		Allowed values: from -99999.99999 to 99999.99999.</span>
-<span class="sd">        open_pool ( Optional[bool]): Open the pool immediately after changing a task suite, if the pool is closed.</span>
+<span class="sd">        open_pool (Optional[bool]): Open the pool immediately after changing a task suite, if the pool is closed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">infinite_overlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">overlap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">issuing_order_override</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">open_pool</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

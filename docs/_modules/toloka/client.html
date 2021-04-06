@@ -157,139 +157,139 @@
             
   <h1>Source code for toloka.client</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">timedelta</span><span class="p">,</span>
-    <span class="n">datetime</span>
+    <span class="n">datetime</span><span class="p">,</span>
+    <span class="n">timedelta</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">pandas.core.frame</span> <span class="kn">import</span> <span class="n">DataFrame</span>
 <span class="kn">from</span> <span class="nn">toloka.client.aggregation</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">AggregatedSolution</span><span class="p">,</span>
-    <span class="n">PoolAggregatedSolutionRequest</span><span class="p">,</span>
     <span class="n">AggregatedSolutionType</span><span class="p">,</span>
-    <span class="n">WeightedDynamicOverlapTaskAggregatedSolutionRequest</span>
+    <span class="n">WeightedDynamicOverlapTaskAggregatedSolutionRequest</span><span class="p">,</span>
+    <span class="n">AggregatedSolution</span><span class="p">,</span>
+    <span class="n">PoolAggregatedSolutionRequest</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.analytics_request</span> <span class="kn">import</span> <span class="n">AnalyticsRequest</span>
 <span class="kn">from</span> <span class="nn">toloka.client.assignment</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">GetAssignmentsTsvParameters</span><span class="p">,</span>
-    <span class="n">AssignmentPatch</span><span class="p">,</span>
-    <span class="n">Assignment</span>
+    <span class="n">Assignment</span><span class="p">,</span>
+    <span class="n">AssignmentPatch</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.attachment</span> <span class="kn">import</span> <span class="n">Attachment</span>
 <span class="kn">from</span> <span class="nn">toloka.client.batch_create_results</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">TaskBatchCreateResult</span><span class="p">,</span>
+    <span class="n">UserBonusBatchCreateResult</span><span class="p">,</span>
     <span class="n">TaskSuiteBatchCreateResult</span><span class="p">,</span>
-    <span class="n">UserBonusBatchCreateResult</span>
+    <span class="n">TaskBatchCreateResult</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.clone_results</span> <span class="kn">import</span> <span class="n">CloneResults</span>
 <span class="kn">from</span> <span class="nn">toloka.client.filter</span> <span class="kn">import</span> <span class="n">FilterCondition</span>
 <span class="kn">from</span> <span class="nn">toloka.client.message_thread</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">MessageThread</span><span class="p">,</span>
     <span class="n">RecipientsSelectType</span><span class="p">,</span>
+    <span class="n">MessageThreadCompose</span><span class="p">,</span>
     <span class="n">Folder</span><span class="p">,</span>
     <span class="n">MessageThreadReply</span><span class="p">,</span>
-    <span class="n">MessageThreadFolders</span><span class="p">,</span>
-    <span class="n">MessageThreadCompose</span>
+    <span class="n">MessageThread</span><span class="p">,</span>
+    <span class="n">MessageThreadFolders</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.operation_log</span> <span class="kn">import</span> <span class="n">OperationLogItem</span>
 <span class="kn">from</span> <span class="nn">toloka.client.operations</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">PoolCloseOperation</span><span class="p">,</span>
-    <span class="n">TaskSuiteCreateBatchOperation</span><span class="p">,</span>
-    <span class="n">UserBonusCreateBatchOperation</span><span class="p">,</span>
-    <span class="n">Operation</span><span class="p">,</span>
-    <span class="n">PoolArchiveOperation</span><span class="p">,</span>
     <span class="n">PoolOpenOperation</span><span class="p">,</span>
-    <span class="n">TrainingArchiveOperation</span><span class="p">,</span>
-    <span class="n">TrainingCloneOperation</span><span class="p">,</span>
-    <span class="n">TrainingOpenOperation</span><span class="p">,</span>
     <span class="n">TasksCreateOperation</span><span class="p">,</span>
     <span class="n">ProjectArchiveOperation</span><span class="p">,</span>
+    <span class="n">TrainingOpenOperation</span><span class="p">,</span>
     <span class="n">PoolCloneOperation</span><span class="p">,</span>
+    <span class="n">TaskSuiteCreateBatchOperation</span><span class="p">,</span>
+    <span class="n">Operation</span><span class="p">,</span>
+    <span class="n">UserBonusCreateBatchOperation</span><span class="p">,</span>
+    <span class="n">TrainingArchiveOperation</span><span class="p">,</span>
     <span class="n">AggregatedSolutionOperation</span><span class="p">,</span>
-    <span class="n">TrainingCloseOperation</span>
+    <span class="n">TrainingCloneOperation</span><span class="p">,</span>
+    <span class="n">PoolArchiveOperation</span><span class="p">,</span>
+    <span class="n">TrainingCloseOperation</span><span class="p">,</span>
+    <span class="n">PoolCloseOperation</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.pool</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Pool</span><span class="p">,</span>
-    <span class="n">PoolPatchRequest</span>
+    <span class="n">PoolPatchRequest</span><span class="p">,</span>
+    <span class="n">Pool</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.project</span> <span class="kn">import</span> <span class="n">Project</span>
 <span class="kn">from</span> <span class="nn">toloka.client.requester</span> <span class="kn">import</span> <span class="n">Requester</span>
 <span class="kn">from</span> <span class="nn">toloka.client.search_requests</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">TrainingSortItems</span><span class="p">,</span>
     <span class="n">UserRestrictionSearchRequest</span><span class="p">,</span>
-    <span class="n">SkillSortItems</span><span class="p">,</span>
-    <span class="n">PoolSortItems</span><span class="p">,</span>
     <span class="n">SkillSearchRequest</span><span class="p">,</span>
-    <span class="n">UserRestrictionSortItems</span><span class="p">,</span>
-    <span class="n">ProjectSearchRequest</span><span class="p">,</span>
-    <span class="n">UserBonusSortItems</span><span class="p">,</span>
-    <span class="n">ProjectSortItems</span><span class="p">,</span>
+    <span class="n">TaskSortItems</span><span class="p">,</span>
     <span class="n">UserBonusSearchRequest</span><span class="p">,</span>
-    <span class="n">PoolSearchRequest</span><span class="p">,</span>
+    <span class="n">AttachmentSearchRequest</span><span class="p">,</span>
+    <span class="n">ProjectSortItems</span><span class="p">,</span>
+    <span class="n">UserSkillSearchRequest</span><span class="p">,</span>
+    <span class="n">TrainingSearchRequest</span><span class="p">,</span>
     <span class="n">MessageThreadSearchRequest</span><span class="p">,</span>
     <span class="n">TaskSuiteSortItems</span><span class="p">,</span>
-    <span class="n">TrainingSearchRequest</span><span class="p">,</span>
-    <span class="n">TaskSortItems</span><span class="p">,</span>
-    <span class="n">AttachmentSortItems</span><span class="p">,</span>
+    <span class="n">AggregatedSolutionSortItems</span><span class="p">,</span>
+    <span class="n">PoolSearchRequest</span><span class="p">,</span>
+    <span class="n">UserBonusSortItems</span><span class="p">,</span>
+    <span class="n">UserRestrictionSortItems</span><span class="p">,</span>
+    <span class="n">PoolSortItems</span><span class="p">,</span>
+    <span class="n">AssignmentSearchRequest</span><span class="p">,</span>
+    <span class="n">TrainingSortItems</span><span class="p">,</span>
+    <span class="n">TaskSuiteSearchRequest</span><span class="p">,</span>
+    <span class="n">SkillSortItems</span><span class="p">,</span>
+    <span class="n">MessageThreadSortItems</span><span class="p">,</span>
+    <span class="n">AggregatedSolutionSearchRequest</span><span class="p">,</span>
+    <span class="n">TaskSearchRequest</span><span class="p">,</span>
     <span class="n">AssignmentSortItems</span><span class="p">,</span>
     <span class="n">UserSkillSortItems</span><span class="p">,</span>
-    <span class="n">TaskSearchRequest</span><span class="p">,</span>
-    <span class="n">UserSkillSearchRequest</span><span class="p">,</span>
-    <span class="n">AggregatedSolutionSearchRequest</span><span class="p">,</span>
-    <span class="n">AggregatedSolutionSortItems</span><span class="p">,</span>
-    <span class="n">TaskSuiteSearchRequest</span><span class="p">,</span>
-    <span class="n">AssignmentSearchRequest</span><span class="p">,</span>
-    <span class="n">MessageThreadSortItems</span><span class="p">,</span>
-    <span class="n">AttachmentSearchRequest</span>
+    <span class="n">ProjectSearchRequest</span><span class="p">,</span>
+    <span class="n">AttachmentSortItems</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.search_results</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">AggregatedSolutionSearchResult</span><span class="p">,</span>
+    <span class="n">AssignmentSearchResult</span><span class="p">,</span>
+    <span class="n">ProjectSearchResult</span><span class="p">,</span>
     <span class="n">MessageThreadSearchResult</span><span class="p">,</span>
-    <span class="n">UserRestrictionSearchResult</span><span class="p">,</span>
     <span class="n">TaskSuiteSearchResult</span><span class="p">,</span>
-    <span class="n">TrainingSearchResult</span><span class="p">,</span>
+    <span class="n">UserBonusSearchResult</span><span class="p">,</span>
+    <span class="n">AttachmentSearchResult</span><span class="p">,</span>
+    <span class="n">SkillSearchResult</span><span class="p">,</span>
+    <span class="n">AggregatedSolutionSearchResult</span><span class="p">,</span>
     <span class="n">TaskSearchResult</span><span class="p">,</span>
     <span class="n">UserSkillSearchResult</span><span class="p">,</span>
-    <span class="n">PoolSearchResult</span><span class="p">,</span>
-    <span class="n">SkillSearchResult</span><span class="p">,</span>
-    <span class="n">ProjectSearchResult</span><span class="p">,</span>
-    <span class="n">AttachmentSearchResult</span><span class="p">,</span>
-    <span class="n">AssignmentSearchResult</span><span class="p">,</span>
-    <span class="n">UserBonusSearchResult</span>
+    <span class="n">UserRestrictionSearchResult</span><span class="p">,</span>
+    <span class="n">TrainingSearchResult</span><span class="p">,</span>
+    <span class="n">PoolSearchResult</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.skill</span> <span class="kn">import</span> <span class="n">Skill</span>
 <span class="kn">from</span> <span class="nn">toloka.client.task</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">TaskOverlapPatch</span><span class="p">,</span>
-    <span class="n">TaskPatch</span><span class="p">,</span>
     <span class="n">CreateTaskParameters</span><span class="p">,</span>
+    <span class="n">TaskPatch</span><span class="p">,</span>
+    <span class="n">Task</span><span class="p">,</span>
     <span class="n">CreateTasksParameters</span><span class="p">,</span>
-    <span class="n">Task</span>
+    <span class="n">TaskOverlapPatch</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.task_suite</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">TaskSuiteCreateRequestParameters</span><span class="p">,</span>
-    <span class="n">TaskSuite</span><span class="p">,</span>
+    <span class="n">TaskSuitePatch</span><span class="p">,</span>
     <span class="n">TaskSuiteOverlapPatch</span><span class="p">,</span>
-    <span class="n">TaskSuitePatch</span>
+    <span class="n">TaskSuite</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.training</span> <span class="kn">import</span> <span class="n">Training</span>
 <span class="kn">from</span> <span class="nn">toloka.client.user_bonus</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">UserBonusCreateRequestParameters</span><span class="p">,</span>
-    <span class="n">UserBonus</span>
+    <span class="n">UserBonus</span><span class="p">,</span>
+    <span class="n">UserBonusCreateRequestParameters</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">toloka.client.user_restriction</span> <span class="kn">import</span> <span class="n">UserRestriction</span>
 <span class="kn">from</span> <span class="nn">toloka.client.user_skill</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">SetUserSkillRequest</span><span class="p">,</span>
-    <span class="n">UserSkill</span>
+    <span class="n">UserSkill</span><span class="p">,</span>
+    <span class="n">SetUserSkillRequest</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Generator</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">BinaryIO</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
     <span class="n">Tuple</span><span class="p">,</span>
-    <span class="n">overload</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Generator</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Union</span><span class="p">,</span>
+    <span class="n">BinaryIO</span><span class="p">,</span>
+    <span class="n">overload</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">urllib3.util.retry</span> <span class="kn">import</span> <span class="n">Retry</span>
 <span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">UUID</span>
@@ -305,14 +305,14 @@
 <span class="sd">    call TolokaClient.update_project and pass the changed Project there.</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        token (str): : You OAuth token for Toloka. You can learn more about how to get it here: https://yandex.ru/dev/toloka/doc/concepts/access.html?lang=en</span>
-<span class="sd">        environment (Union[Environment, str]): : There are two versions of Toloka. You need to register separately in each of them:</span>
+<span class="sd">        token (str): You OAuth token for Toloka. You can learn more about how to get it here: https://yandex.ru/dev/toloka/doc/concepts/access.html?lang=en</span>
+<span class="sd">        environment (Union[Environment, str]): There are two versions of Toloka. You need to register separately in each of them:</span>
 <span class="sd">    		* SANDBOX: Testing version oif Toloka. You can test complex projects before the start. Nobody saw your tasks.</span>
 <span class="sd">    		* PRODUCTION: Production version of Toloka for requesters. You spend money and get result.</span>
-<span class="sd">        retries (Union[int, Retry]): : Retry policy. You can use the following types:</span>
+<span class="sd">        retries (Union[int, Retry]): Retry policy. You can use the following types:</span>
 <span class="sd">    		* int - The number of retries for all requests. In this case, the retry policy is created automatically.</span>
 <span class="sd">    		* Retry - Fully specified retry policy that will apply to all requests.</span>
-<span class="sd">        timeout (Union[float, Tuple[float, float]]): : Same as timeout in Requests. The connect timeout is the number of seconds Requests will wait for your client</span>
+<span class="sd">        timeout (Union[float, Tuple[float, float]]): Same as timeout in Requests. The connect timeout is the number of seconds Requests will wait for your client</span>
 <span class="sd">    		to establish a connection to a remote machine call on the socket.</span>
 <span class="sd">    		* If you specify a single value for the timeout, it will be applied to both the connect and the read timeouts.</span>
 <span class="sd">    		* Specify a tuple if you would like to set the values separately.</span>
@@ -353,8 +353,8 @@
 <span class="sd">        Used then your pool created with auto_accept_solutions=False parametr.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            assignment_id (str): : What assignment will be accepted.</span>
-<span class="sd">            public_comment (str): : Message to the performer.</span>
+<span class="sd">            assignment_id (str): What assignment will be accepted.</span>
+<span class="sd">            public_comment (str): Message to the performer.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Assignment: Object with new status.</span>
@@ -370,8 +370,8 @@
         <span class="sd">&quot;&quot;&quot;Adds a message chain to one or more folders (&quot;unread&quot;, &quot;important&quot; etc.)</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            message_thread_id (str): : ID of message chain.</span>
-<span class="sd">            folders (Union[List[Folder], MessageThreadFolders]): : List of folders, where to move chain.</span>
+<span class="sd">            message_thread_id (str): ID of message chain.</span>
+<span class="sd">            folders (Union[List[Folder], MessageThreadFolders]): List of folders, where to move chain.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            MessageThread: Full object by ID with updated folders.</span>
@@ -389,10 +389,17 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            type (Optional[AggregatedSolutionType]): : Parameters describing in which pool to aggregate solutions and by what rules.</span>
-<span class="sd">            pool_id (Optional[str]): : Parameters describing in which pool to aggregate solutions and by what rules.</span>
-<span class="sd">            answer_weight_skill_id (Optional[str]): : Parameters describing in which pool to aggregate solutions and by what rules.</span>
-<span class="sd">            fields (Optional[List[PoolAggregatedSolutionRequest.Field]]): : Parameters describing in which pool to aggregate solutions and by what rules.</span>
+<span class="sd">            type (Optional[AggregatedSolutionType]): Aggregation type.</span>
+<span class="sd">        		WEIGHTED_DYNAMIC_OVERLAP - Aggregation of responses in a pool with dynamic overlap.</span>
+<span class="sd">        		DAWID_SKENE - Dawid-Skene aggregation model.</span>
+<span class="sd">        		    A. Philip Dawid and Allan M. Skene. 1979.</span>
+<span class="sd">        		    Maximum Likelihood Estimation of Observer Error-Rates Using the EM Algorithm.</span>
+<span class="sd">        		    Journal of the Royal Statistical Society. Series C (Applied Statistics), Vol. 28, 1 (1979), 20–28.</span>
+<span class="sd">        		    https://doi.org/10.2307/2346806</span>
+<span class="sd">            pool_id (Optional[str]): In which pool to aggregate the results.</span>
+<span class="sd">            answer_weight_skill_id (Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
+<span class="sd">            fields (Optional[List[PoolAggregatedSolutionRequest.Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
+<span class="sd">        		must have a limited number of response options.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            operations.AggregatedSolutionOperation: An operation upon completion of which you can get the results of the aggregation.</span>
@@ -419,8 +426,9 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            answer_weight_skill_id (Optional[str]): : Parameters describing on which task to aggregate solutions and by what rules.</span>
-<span class="sd">            fields (Optional[List[WeightedDynamicOverlapTaskAggregatedSolutionRequest.Field]]): : Parameters describing on which task to aggregate solutions and by what rules.</span>
+<span class="sd">            answer_weight_skill_id (Optional[str]): A skill that determines the weight of the performer&#39;s response.</span>
+<span class="sd">            fields (Optional[List[WeightedDynamicOverlapTaskAggregatedSolutionRequest.Field]]): Output data fields to use for aggregating responses. For best results, each of these fields</span>
+<span class="sd">        		must have a limited number of response options.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            AggregatedSolution: Result of aggregation. Also contains input parameters and result confidence.</span>
@@ -447,7 +455,7 @@
 <span class="sd">        The archived pool is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of pool that will be archived.</span>
+<span class="sd">            pool_id (str): ID of pool that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Object with updated status.</span>
@@ -461,7 +469,7 @@
 <span class="sd">        The archived pool is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of pool that will be archived.</span>
+<span class="sd">            pool_id (str): ID of pool that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            PoolArchiveOperation: An operation upon completion of which you can get the pool with updated status.</span>
@@ -475,7 +483,7 @@
 <span class="sd">        The archived project is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project_id (str): : ID of project that will be archived.</span>
+<span class="sd">            project_id (str): ID of project that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Project: Object with updated status.</span>
@@ -489,7 +497,7 @@
 <span class="sd">        The archived project is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project_id (str): : ID of project that will be archived.</span>
+<span class="sd">            project_id (str): ID of project that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            ProjectArchiveOperation: An operation upon completion of which you can get the project with updated status.</span>
@@ -503,7 +511,7 @@
 <span class="sd">        The archived training is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of training that will be archived.</span>
+<span class="sd">            training_id (str): ID of training that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: Object with updated status.</span>
@@ -517,7 +525,7 @@
 <span class="sd">        The archived training is not deleted. You can access it when you will need it.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of training that will be archived.</span>
+<span class="sd">            training_id (str): ID of training that will be archived.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TrainingArchiveOperation: An operation upon completion of which you can get the training with updated status.</span>
@@ -531,7 +539,7 @@
 <span class="sd">        A new pool will be attached to the same project.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the existing pool.</span>
+<span class="sd">            pool_id (str): ID of the existing pool.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: New pool.</span>
@@ -545,7 +553,7 @@
 <span class="sd">        A new pool will be attached to the same project.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the existing pool.</span>
+<span class="sd">            pool_id (str): ID of the existing pool.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            PoolCloneOperation: An operation upon completion of which you can get the new pool.</span>
@@ -565,8 +573,8 @@
 <span class="sd">        Doesn&#39;t copy tasks/golden tasks/training tasks.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project_id (str): : ID of the project to be cloned.</span>
-<span class="sd">            reuse_quality_controllers: : Use same quality controllers in cloned and created projects. Defaults to True.</span>
+<span class="sd">            project_id (str): ID of the project to be cloned.</span>
+<span class="sd">            reuse_quality_controllers: Use same quality controllers in cloned and created projects. Defaults to True.</span>
 <span class="sd">        		This means that all quality control rules will be applied to both projects.</span>
 <span class="sd">        		For example, if you have rule &quot;fast_submitted_count&quot;, fast responses counts across both projects.</span>
 
@@ -587,7 +595,7 @@
 <span class="sd">        A new training will be attached to the same project.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the existing training.</span>
+<span class="sd">            training_id (str): ID of the existing training.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: New training.</span>
@@ -601,7 +609,7 @@
 <span class="sd">        A new training will be attached to the same project.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the existing training.</span>
+<span class="sd">            training_id (str): ID of the existing training.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TrainingCloneOperation: An operation upon completion of which you can get the new training.</span>
@@ -614,7 +622,7 @@
 <span class="sd">        If all tasks done, the pool will be closed automatically.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be closed.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Pool object with new status.</span>
@@ -627,7 +635,7 @@
 <span class="sd">        If all tasks done, the pool will be closed automatically.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be closed.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            PoolCloseOperation: An operation upon completion of which you can get the pool with updated status.</span>
@@ -642,7 +650,7 @@
         <span class="sd">&quot;&quot;&quot;Stops distributing tasks from the training</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training that will be closed.</span>
+<span class="sd">            training_id (str): ID of the training that will be closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: Training object with new status.</span>
@@ -653,7 +661,7 @@
         <span class="sd">&quot;&quot;&quot;Stops distributing tasks from the training, asynchronous version</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training that will be closed.</span>
+<span class="sd">            training_id (str): ID of the training that will be closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TrainingCloseOperation: An operation upon completion of which you can get the training with updated status.</span>
@@ -667,12 +675,15 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            recipients_select_type (Optional[RecipientsSelectType]): : Message parameters.</span>
-<span class="sd">            topic (Optional[Dict[str, str]]): : Message parameters.</span>
-<span class="sd">            text (Optional[Dict[str, str]]): : Message parameters.</span>
-<span class="sd">            answerable (Optional[bool]): : Message parameters.</span>
-<span class="sd">            recipients_ids (Optional[List[str]]): : Message parameters.</span>
-<span class="sd">            recipients_filter (Optional[FilterCondition]): : Message parameters.</span>
+<span class="sd">            recipients_select_type (Optional[RecipientsSelectType]): Method for selecting recipients</span>
+<span class="sd">            topic (Optional[Dict[str, str]]): Subject of the message. You can enter the subject in multiple</span>
+<span class="sd">        		languages (the message is sent in the user&#39;s language).</span>
+<span class="sd">            text (Optional[Dict[str, str]]): Message text. You can enter the text in multiple languages (the message is sent in the user&#39;s language)</span>
+<span class="sd">            answerable (Optional[bool]): Whether the message can be responded to:</span>
+<span class="sd">        		* True — Users can respond to the message.</span>
+<span class="sd">        		* False — Users can&#39;t respond to the message.</span>
+<span class="sd">            recipients_ids (Optional[List[str]]): The list of IDs of users who will receive the message.</span>
+<span class="sd">            recipients_filter (Optional[FilterCondition]): Filter for selecting recipients.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            MessageThread: New created thread.</span>
@@ -685,7 +696,7 @@
 <span class="sd">        You can send a maximum of 20 requests of this kind per minute and 100 requests per day.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool (Pool): : New Pool with setted parameters.</span>
+<span class="sd">            pool (Pool): New Pool with setted parameters.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Created pool. With read-only fields.</span>
@@ -716,7 +727,7 @@
         <span class="sd">&quot;&quot;&quot;Creates a new project</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project (Project): : New Project with setted parameters.</span>
+<span class="sd">            project (Project): New Project with setted parameters.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Project: Created project. With read-only fields.</span>
@@ -748,15 +759,20 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : New Skill with setted parameters.</span>
-<span class="sd">            private_comment (Optional[str]): : New Skill with setted parameters.</span>
-<span class="sd">            hidden (Optional[bool]): : New Skill with setted parameters.</span>
-<span class="sd">            skill_ttl_hours (Optional[int]): : New Skill with setted parameters.</span>
-<span class="sd">            training (Optional[bool]): : New Skill with setted parameters.</span>
-<span class="sd">            public_name (Optional[Dict[str, str]]): : New Skill with setted parameters.</span>
-<span class="sd">            public_requester_description (Optional[Dict[str, str]]): : New Skill with setted parameters.</span>
-<span class="sd">            id (Optional[str]): : New Skill with setted parameters.</span>
-<span class="sd">            created (Optional[datetime]): : New Skill with setted parameters.</span>
+<span class="sd">            name (Optional[str]): Skill name.</span>
+<span class="sd">            private_comment (Optional[str]): Comments on the skill (only visible to the requester).</span>
+<span class="sd">            hidden (Optional[bool]): Access to information about the skill (the name and value) for users:</span>
+<span class="sd">        		* True - Closed. Default behaviour.</span>
+<span class="sd">        		* False - Opened.</span>
+<span class="sd">            skill_ttl_hours (Optional[int]): The skill&#39;s &quot;time to live&quot; after the last update (in hours). The skill is removed from</span>
+<span class="sd">        		the user&#39;s profile if the skill level hasn&#39;t been updated for the specified length of time.</span>
+<span class="sd">            training (Optional[bool]): Whether the skill is related to a training pool:</span>
+<span class="sd">        		* True - The skill level is calculated from training pool tasks.</span>
+<span class="sd">        		* False - The skill isn&#39;t related to a training pool.</span>
+<span class="sd">            public_name (Optional[Dict[str, str]]): Skill name for other users. You can provide a name in several languages (the message will come in the user&#39;s language).</span>
+<span class="sd">            public_requester_description (Optional[Dict[str, str]]): Skill description text for other users. You can provide text in several languages (the message will come in the user&#39;s language).</span>
+<span class="sd">            id (Optional[str]): Skill ID. Read only field.</span>
+<span class="sd">            created (Optional[datetime]): The UTC date and time when the skill was created. Read only field.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Skill: Created skill. With read-only fields.</span>
@@ -784,11 +800,11 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task (Task): : Task that need to be created.</span>
-<span class="sd">            allow_defaults (Optional[bool]): : Parameters for Task creation controlling. Defaults to None.</span>
-<span class="sd">        		Allows you to use default overlap and start pool after task creation.</span>
-<span class="sd">            open_pool (Optional[bool]): : Parameters for Task creation controlling. Defaults to None.</span>
-<span class="sd">        		Allows you to use default overlap and start pool after task creation.</span>
+<span class="sd">            task (Task): Task that need to be created.</span>
+<span class="sd">            allow_defaults (Optional[bool]): Overlap settings:</span>
+<span class="sd">        		* True - Use the overlap that is set in the pool parameters (in the defaults.default_overlap_for_new_task_suites key).</span>
+<span class="sd">        		* False - Use the overlap that is set in the task suite parameters (in the overlap field).</span>
+<span class="sd">            open_pool (Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Task: Created task.</span>
@@ -806,12 +822,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suite (TaskSuite): : Task suite that need to be created.</span>
-<span class="sd">            operation_id (Optional[UUID]): : Parameters for TaskSuite creation controlling. Defaults to None.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None.</span>
-<span class="sd">            allow_defaults (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None.</span>
-<span class="sd">            open_pool (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None.</span>
-<span class="sd">            async_mode (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None.</span>
+<span class="sd">            task_suite (TaskSuite): Task suite that need to be created.</span>
+<span class="sd">            operation_id (Optional[UUID]): Operation ID for asynchronous loading of task suites.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters:</span>
+<span class="sd">        		* True - Create the task suites that passed validation. Skip the rest of the task suites.</span>
+<span class="sd">        		* False - If at least one of the task suites didn&#39;t pass validation, stop the operation and</span>
+<span class="sd">        		    don&#39;t create the task suites.</span>
+<span class="sd">            allow_defaults (Optional[bool]): Overlap settings:</span>
+<span class="sd">        		* True - Use the overlap that is set in the pool parameters.</span>
+<span class="sd">        		* False - Use the overlap that is set in the task suite parameters (in the overlap field).</span>
+<span class="sd">            open_pool (Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
+<span class="sd">            async_mode (Optional[bool]): How the request is processed:</span>
+<span class="sd">        		* True — deferred. The query results in an asynchronous operation running in the background.</span>
+<span class="sd">        		    Answer contains information about the operation (start and end time, status, number of sets).</span>
+<span class="sd">        		* False — synchronous. Answer contains information about the generated sets of tasks.</span>
+<span class="sd">        		    You can send a maximum of 5000 task sets in a single request.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuite: Created task suite.</span>
@@ -832,17 +857,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suites (List[TaskSuite]): : List of task suites, that will be created.</span>
-<span class="sd">            operation_id (Optional[UUID]): : Parameters for TaskSuite creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
-<span class="sd">            allow_defaults (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
-<span class="sd">            open_pool (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
-<span class="sd">            async_mode (Optional[bool]): : Parameters for TaskSuite creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
+<span class="sd">            task_suites (List[TaskSuite]): List of task suites, that will be created.</span>
+<span class="sd">            operation_id (Optional[UUID]): Operation ID for asynchronous loading of task suites.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters:</span>
+<span class="sd">        		* True - Create the task suites that passed validation. Skip the rest of the task suites.</span>
+<span class="sd">        		* False - If at least one of the task suites didn&#39;t pass validation, stop the operation and</span>
+<span class="sd">        		    don&#39;t create the task suites.</span>
+<span class="sd">            allow_defaults (Optional[bool]): Overlap settings:</span>
+<span class="sd">        		* True - Use the overlap that is set in the pool parameters.</span>
+<span class="sd">        		* False - Use the overlap that is set in the task suite parameters (in the overlap field).</span>
+<span class="sd">            open_pool (Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
+<span class="sd">            async_mode (Optional[bool]): How the request is processed:</span>
+<span class="sd">        		* True — deferred. The query results in an asynchronous operation running in the background.</span>
+<span class="sd">        		    Answer contains information about the operation (start and end time, status, number of sets).</span>
+<span class="sd">        		* False — synchronous. Answer contains information about the generated sets of tasks.</span>
+<span class="sd">        		    You can send a maximum of 5000 task sets in a single request.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuiteBatchCreateResult: Result of task suites creating. Contains created task suites in &quot;items&quot; and</span>
@@ -862,12 +891,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suites (List[TaskSuite]): : List of task suites, that will be created.</span>
-<span class="sd">            operation_id (Optional[UUID]): : Parameters for TaskSuite creation controlling.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for TaskSuite creation controlling.</span>
-<span class="sd">            allow_defaults (Optional[bool]): : Parameters for TaskSuite creation controlling.</span>
-<span class="sd">            open_pool (Optional[bool]): : Parameters for TaskSuite creation controlling.</span>
-<span class="sd">            async_mode (Optional[bool]): : Parameters for TaskSuite creation controlling.</span>
+<span class="sd">            task_suites (List[TaskSuite]): List of task suites, that will be created.</span>
+<span class="sd">            operation_id (Optional[UUID]): Operation ID for asynchronous loading of task suites.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters:</span>
+<span class="sd">        		* True - Create the task suites that passed validation. Skip the rest of the task suites.</span>
+<span class="sd">        		* False - If at least one of the task suites didn&#39;t pass validation, stop the operation and</span>
+<span class="sd">        		    don&#39;t create the task suites.</span>
+<span class="sd">            allow_defaults (Optional[bool]): Overlap settings:</span>
+<span class="sd">        		* True - Use the overlap that is set in the pool parameters.</span>
+<span class="sd">        		* False - Use the overlap that is set in the task suite parameters (in the overlap field).</span>
+<span class="sd">            open_pool (Optional[bool]): Open the pool immediately after creating a task suite, if the pool is closed.</span>
+<span class="sd">            async_mode (Optional[bool]): How the request is processed:</span>
+<span class="sd">        		* True — deferred. The query results in an asynchronous operation running in the background.</span>
+<span class="sd">        		    Answer contains information about the operation (start and end time, status, number of sets).</span>
+<span class="sd">        		* False — synchronous. Answer contains information about the generated sets of tasks.</span>
+<span class="sd">        		    You can send a maximum of 5000 task sets in a single request.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuiteCreateBatchOperation: An operation upon completion of which you can get the created teask suites.</span>
@@ -885,11 +923,16 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            tasks (List[Task]): : List of tasks, that will be created.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for Tasks creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
-<span class="sd">            async_mode (Optional[bool]): : Parameters for Tasks creation controlling. Defaults to None, in which case the asynchronous</span>
-<span class="sd">        		operations is used.</span>
+<span class="sd">            tasks (List[Task]): List of tasks, that will be created.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters:</span>
+<span class="sd">        		* True — Create the tasks that passed validation. Skip the rest of the tasks (errors will</span>
+<span class="sd">        		    be listed in the response to the request).</span>
+<span class="sd">        		* False — If at least one of the tasks didn&#39;t pass validation, stop the operation and don&#39;t create any tasks.</span>
+<span class="sd">            async_mode (Optional[bool]): How the request is processed:</span>
+<span class="sd">        		* True — deferred. The query results in an asynchronous operation running in the background.</span>
+<span class="sd">        		    The response contains information about the operation (start and end time, status, number of sets).</span>
+<span class="sd">        		* False — synchronous. The response contains information about the created tasks.</span>
+<span class="sd">        		    A maximum of 5000 tasks can be sent in a single request.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            batch_create_results.TaskBatchCreateResult: Result of tasks creating. Contains created tasks in &quot;items&quot; and</span>
@@ -937,9 +980,16 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            tasks (List[Task]): : List of tasks, that will be created.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for Tasks creation controlling. Defaults to None.</span>
-<span class="sd">            async_mode (Optional[bool]): : Parameters for Tasks creation controlling. Defaults to None.</span>
+<span class="sd">            tasks (List[Task]): List of tasks, that will be created.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters:</span>
+<span class="sd">        		* True — Create the tasks that passed validation. Skip the rest of the tasks (errors will</span>
+<span class="sd">        		    be listed in the response to the request).</span>
+<span class="sd">        		* False — If at least one of the tasks didn&#39;t pass validation, stop the operation and don&#39;t create any tasks.</span>
+<span class="sd">            async_mode (Optional[bool]): How the request is processed:</span>
+<span class="sd">        		* True — deferred. The query results in an asynchronous operation running in the background.</span>
+<span class="sd">        		    The response contains information about the operation (start and end time, status, number of sets).</span>
+<span class="sd">        		* False — synchronous. The response contains information about the created tasks.</span>
+<span class="sd">        		    A maximum of 5000 tasks can be sent in a single request.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TasksCreateOperation: An operation upon completion of which you can get the created tasks.</span>
@@ -950,7 +1000,7 @@
         <span class="sd">&quot;&quot;&quot;Creates a new training</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training (Training): : New Training with setted parameters.</span>
+<span class="sd">            training (Training): New Training with setted parameters.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: Created training. With read-only fields.</span>
@@ -983,8 +1033,8 @@
 <span class="sd">        You can send a maximum of 10,000 requests of this kind per day.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_bonus (UserBonus): : To whom, how much to pay and for what.</span>
-<span class="sd">            parameters (Optional[UserBonusCreateRequestParameters]): : Parameters for UserBonus creation controlling.</span>
+<span class="sd">            user_bonus (UserBonus): To whom, how much to pay and for what.</span>
+<span class="sd">            parameters (Optional[UserBonusCreateRequestParameters]): Parameters for UserBonus creation controlling.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserBonus: Created bonus.</span>
@@ -1012,9 +1062,12 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_bonuses (List[UserBonus]): : To whom, how much to pay and for what.</span>
-<span class="sd">            operation_id (Optional[str]): : Parameters for UserBonus creation controlling.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for UserBonus creation controlling.</span>
+<span class="sd">            user_bonuses (List[UserBonus]): To whom, how much to pay and for what.</span>
+<span class="sd">            operation_id (Optional[str]): Operation ID. If asynchronous creation is used, by this identifier you can later get</span>
+<span class="sd">        		results of creating bonuses.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters of objects:</span>
+<span class="sd">        		* True - Award a bonus if the object with bonus information passed validation. Otherwise, skip the bonus.</span>
+<span class="sd">        		* False - Default behaviour. Stop the operation and don&#39;t award bonuses if at least one object didn&#39;t pass validation.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserBonusBatchCreateResult: Result of user bonuses creating. Contains created user bonuses in &quot;items&quot; and</span>
@@ -1029,9 +1082,12 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_bonuses (List[UserBonus]): : To whom, how much to pay and for what.</span>
-<span class="sd">            operation_id (Optional[str]): : Parameters for UserBonus creation controlling.</span>
-<span class="sd">            skip_invalid_items (Optional[bool]): : Parameters for UserBonus creation controlling.</span>
+<span class="sd">            user_bonuses (List[UserBonus]): To whom, how much to pay and for what.</span>
+<span class="sd">            operation_id (Optional[str]): Operation ID. If asynchronous creation is used, by this identifier you can later get</span>
+<span class="sd">        		results of creating bonuses.</span>
+<span class="sd">            skip_invalid_items (Optional[bool]): Validation parameters of objects:</span>
+<span class="sd">        		* True - Award a bonus if the object with bonus information passed validation. Otherwise, skip the bonus.</span>
+<span class="sd">        		* False - Default behaviour. Stop the operation and don&#39;t award bonuses if at least one object didn&#39;t pass validation.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserBonusCreateBatchOperation: An operation upon completion of which the bonuses can be considered created.</span>
@@ -1042,7 +1098,7 @@
         <span class="sd">&quot;&quot;&quot;Unlocks existing restriction</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_restriction_id (str): : Restriction that should be removed.</span>
+<span class="sd">            user_restriction_id (str): Restriction that should be removed.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span></div>
 
@@ -1052,7 +1108,7 @@
 <span class="sd">        UserSkill describe the skill value for a specific performer.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_skill_id (str): : ID of the fact that the performer has a skill to delete.</span>
+<span class="sd">            user_skill_id (str): ID of the fact that the performer has a skill to delete.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span></div>
 
@@ -1060,8 +1116,8 @@
         <span class="sd">&quot;&quot;&quot;Downloads specific attachment</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            attachment_id (str): : ID of attachment.</span>
-<span class="sd">            out (BinaryIO): : File object where to put downloaded file.</span>
+<span class="sd">            attachment_id (str): ID of attachment.</span>
+<span class="sd">            out (BinaryIO): File object where to put downloaded file.</span>
 
 <span class="sd">        Examples:</span>
 <span class="sd">            How to download attachment.</span>
@@ -1080,13 +1136,13 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            operation_id (str): : From what aggregation operation you want to get results.</span>
-<span class="sd">            task_id_lt (Optional[str]): : How to filter search results.</span>
-<span class="sd">            task_id_lte (Optional[str]): : How to filter search results.</span>
-<span class="sd">            task_id_gt (Optional[str]): : How to filter search results.</span>
-<span class="sd">            task_id_gte (Optional[str]): : How to filter search results.</span>
-<span class="sd">            sort (Union[List[str], AggregatedSolutionSortItems, None]): : How to sort results. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 100,000.</span>
+<span class="sd">            operation_id (str): From what aggregation operation you want to get results.</span>
+<span class="sd">            task_id_lt (Optional[str]): Jobs with an ID greater than the specified value.</span>
+<span class="sd">            task_id_lte (Optional[str]): Jobs with an ID greater than or equal to the specified value.</span>
+<span class="sd">            task_id_gt (Optional[str]): Jobs with an ID less than the specified value.</span>
+<span class="sd">            task_id_gte (Optional[str]): Jobs with an ID less than or equal to the specified value.</span>
+<span class="sd">            sort (Union[List[str], AggregatedSolutionSortItems, None]): How to sort results. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 100,000.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1120,25 +1176,32 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Assignment.Status]): : How to search assignments.</span>
-<span class="sd">            task_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            task_suite_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            user_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search assignments.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_lt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_lte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_gt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_gte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            sort (Union[List[str], AssignmentSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of assignments returned. The maximum is 100,000.</span>
+<span class="sd">            status (Optional[Assignment.Status]): Status of an assigned task suite (Detailed status description in Assignment.Status):</span>
+<span class="sd">        		* ACTIVE</span>
+<span class="sd">        		* SUBMITTED</span>
+<span class="sd">        		* ACCEPTED</span>
+<span class="sd">        		* REJECTED</span>
+<span class="sd">        		* SKIPPED</span>
+<span class="sd">        		* EXPIRED</span>
+<span class="sd">            task_id (Optional[str]): The task ID in suites generated automatically using &quot;smart mixing&quot;.</span>
+<span class="sd">        		You will get responses for task suites that contain the specified task.</span>
+<span class="sd">            task_suite_id (Optional[str]): ID of a task suite.</span>
+<span class="sd">            pool_id (Optional[str]): Pool ID.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            id_lt (Optional[str]): Task suites with an assignment ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Task suites with an assignment ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Task suites with an assignment ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Task suites with an assignment ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Task suites assigned before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Task suites assigned before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Task suites assigned after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Task suites assigned after or on the specified date.</span>
+<span class="sd">            submitted_lt (Optional[datetime]): Task suites completed before the specified date.</span>
+<span class="sd">            submitted_lte (Optional[datetime]): Task suites completed before or on the specified date.</span>
+<span class="sd">            submitted_gt (Optional[datetime]): Task suites completed after the specified date.</span>
+<span class="sd">            submitted_gte (Optional[datetime]): Task suites completed after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], AssignmentSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of assignments returned. The maximum is 100,000.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1156,23 +1219,23 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search attachments.</span>
-<span class="sd">            type (Optional[Attachment.Type]): : How to search attachments.</span>
-<span class="sd">            user_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            assignment_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            owner_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            owner_company_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            sort (Union[List[str], AttachmentSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 100,000.</span>
+<span class="sd">            name (Optional[str]): File name.</span>
+<span class="sd">            type (Optional[Attachment.Type]): Attachment type. Currently the key can have only one value - ASSIGNMENT_ATTACHMENT.</span>
+<span class="sd">            user_id (Optional[str]): ID of the user who uploaded the file(s).</span>
+<span class="sd">            assignment_id (Optional[str]): Assignment ID.</span>
+<span class="sd">            pool_id (Optional[str]): Pool ID.</span>
+<span class="sd">            owner_id (Optional[str]): Optional[str]</span>
+<span class="sd">            owner_company_id (Optional[str]): Optional[str]</span>
+<span class="sd">            id_lt (Optional[str]): Files with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Files with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Files with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Files with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Files uploaded by users before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Files uploaded by users before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Files uploaded by users after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Files uploaded by users after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], AttachmentSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 100,000.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1190,18 +1253,18 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            folder (Optional[Folder]): :  How to search threads.</span>
-<span class="sd">            folder_ne (Optional[Folder]): :  How to search threads.</span>
-<span class="sd">            id_lt (Optional[str]): :  How to search threads.</span>
-<span class="sd">            id_lte (Optional[str]): :  How to search threads.</span>
-<span class="sd">            id_gt (Optional[str]): :  How to search threads.</span>
-<span class="sd">            id_gte (Optional[str]): :  How to search threads.</span>
-<span class="sd">            created_lt (Optional[datetime]): :  How to search threads.</span>
-<span class="sd">            created_lte (Optional[datetime]): :  How to search threads.</span>
-<span class="sd">            created_gt (Optional[datetime]): :  How to search threads.</span>
-<span class="sd">            created_gte (Optional[datetime]): :  How to search threads.</span>
-<span class="sd">            sort (Union[List[str], MessageThreadSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 300.</span>
+<span class="sd">            folder (Optional[Folder]): Folders to search for the thread</span>
+<span class="sd">            folder_ne (Optional[Folder]): Folders to not search for the thread</span>
+<span class="sd">            id_lt (Optional[str]): Threads with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Threads with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Threads with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Threads with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Threads created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Threads created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Threads created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Threads created after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], MessageThreadSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 300.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1220,22 +1283,26 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Pool.Status]): : How to search pools.</span>
-<span class="sd">            project_id (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search pools.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_lt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_lte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_gt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_gte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            sort (Union[List[str], PoolSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 300.</span>
+<span class="sd">            status (Optional[Pool.Status]): Pool status</span>
+<span class="sd">        		* OPEN</span>
+<span class="sd">        		* CLOSED</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">        		* LOCKED</span>
+<span class="sd">            project_id (Optional[str]): ID of the project to which the pool is attached.</span>
+<span class="sd">            id_lt (Optional[str]): Pools with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Pools with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Pools with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Pools with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Pools created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Pools created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Pools created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Pools created after or on the specified date.</span>
+<span class="sd">            last_started_lt (Optional[datetime]): Pools that were last opened before the specified date.</span>
+<span class="sd">            last_started_lte (Optional[datetime]): Pools that were last opened on or before the specified date.</span>
+<span class="sd">            last_started_gt (Optional[datetime]): Pools that were last opened after the specified date.</span>
+<span class="sd">            last_started_gte (Optional[datetime]): Pools that were last opened on or after the specified date.</span>
+<span class="sd">            sort (Union[List[str], PoolSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 300.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 20 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1254,17 +1321,19 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Project.ProjectStatus]): : How to search projects.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search projects.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            sort (Union[List[str], ProjectSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 300.</span>
+<span class="sd">            status (Optional[Project.ProjectStatus]): Status of the project, from Project.ProjectStatus:</span>
+<span class="sd">        		* ACTIVE</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">            id_lt (Optional[str]): Projects with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Projects with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Projects with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Projects with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Projects created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Projects created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Projects created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Projects created after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], ProjectSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 300.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 20 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1283,17 +1352,17 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search skills.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            sort (Union[List[str], SkillSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned.</span>
+<span class="sd">            name (Optional[str]): Skill name.</span>
+<span class="sd">            id_lt (Optional[str]): Skills with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Skills with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Skills with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Skills with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Skills created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Skills created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Skills created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Skills created on or after the specified date.</span>
+<span class="sd">            sort (Union[List[str], SkillSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            SkillSearchResult: The first &quot;limit&quot; skills in &quot;items&quot;.</span>
@@ -1311,23 +1380,24 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_id (Optional[str]): : How to search task suites.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search task suites.</span>
-<span class="sd">            overlap (Optional[int]): : How to search task suites.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search task suites.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            overlap_lt (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_lte (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_gt (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_gte (Optional[int]): : How to search task suites.</span>
-<span class="sd">            sort (Union[List[str], TaskSuiteSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 100 000.</span>
+<span class="sd">            task_id (Optional[str]): The task ID in suites generated automatically using &quot;smart mixing&quot;.</span>
+<span class="sd">        		You will get task suites that contain the specified task.</span>
+<span class="sd">            pool_id (Optional[str]): ID of the pool to get task suites from.</span>
+<span class="sd">            overlap (Optional[int]): Suites with an overlap equal to the specified value.</span>
+<span class="sd">            id_lt (Optional[str]): Task suites with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Task suites with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Task suites with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Task suites with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Task suites created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Task suites created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Task suites created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Task suites created after or on the specified date.</span>
+<span class="sd">            overlap_lt (Optional[int]): Suites with an overlap less than the specified value.</span>
+<span class="sd">            overlap_lte (Optional[int]): Suites with an overlap less than or equal to the specified value.</span>
+<span class="sd">            overlap_gt (Optional[int]): Suites with an overlap greater than the specified value.</span>
+<span class="sd">            overlap_gte (Optional[int]): Suites with an overlap greater than or equal to the specified value.</span>
+<span class="sd">            sort (Union[List[str], TaskSuiteSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 100 000.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1345,22 +1415,22 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (Optional[str]): : How to search tasks.</span>
-<span class="sd">            overlap (Optional[int]): : How to search tasks.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search tasks.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            overlap_lt (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_lte (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_gt (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_gte (Optional[int]): : How to search tasks.</span>
-<span class="sd">            sort (Union[List[str], TaskSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned. The maximum is 100 000.</span>
+<span class="sd">            pool_id (Optional[str]): ID of the pool to get tasks from.</span>
+<span class="sd">            overlap (Optional[int]): Tasks with an overlap equal to the specified value.</span>
+<span class="sd">            id_lt (Optional[str]): Tasks with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Tasks with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Tasks with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Tasks with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Tasks created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Tasks created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Tasks created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Tasks created after or on the specified date.</span>
+<span class="sd">            overlap_lt (Optional[int]): Tasks with an overlap less than the specified value.</span>
+<span class="sd">            overlap_lte (Optional[int]): Tasks with an overlap equal to the specified value.</span>
+<span class="sd">            overlap_gt (Optional[int]): Tasks with an overlap greater than the specified value.</span>
+<span class="sd">            overlap_gte (Optional[int]): Tasks with an overlap equal to the specified value.</span>
+<span class="sd">            sort (Union[List[str], TaskSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned. The maximum is 100 000.</span>
 <span class="sd">        		Defaults to None, in which case it returns first 50 results.</span>
 
 <span class="sd">        Returns:</span>
@@ -1378,22 +1448,26 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Training.Status]): : How to search trainings.</span>
-<span class="sd">            project_id (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search trainings.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_lt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_lte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_gt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_gte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            sort (Union[List[str], TrainingSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned.</span>
+<span class="sd">            status (Optional[Training.Status]): Training pool status:</span>
+<span class="sd">        		* OPEN</span>
+<span class="sd">        		* CLOSED</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">        		* LOCKED</span>
+<span class="sd">            project_id (Optional[str]): ID of the project to which the training pool is attached.</span>
+<span class="sd">            id_lt (Optional[str]): Training pools with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Training pools with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Training pools with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Training pools with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Training pools created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Training pools created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Training pools created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Training pools created after or on the specified date.</span>
+<span class="sd">            last_started_lt (Optional[datetime]): Training pools that were last opened before the specified date.</span>
+<span class="sd">            last_started_lte (Optional[datetime]): Training pools that were last opened on or before the specified date.</span>
+<span class="sd">            last_started_gt (Optional[datetime]): Training pools that were last opened after the specified date.</span>
+<span class="sd">            last_started_gte (Optional[datetime]): Training pools that were last opened on or after the specified date.</span>
+<span class="sd">            sort (Union[List[str], TrainingSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            search_results.PoolSearchResult: The first &quot;limit&quot; trainings in &quot;items&quot;.</span>
@@ -1411,18 +1485,18 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_id (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            private_comment (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user bonuses.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user bonuses.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user bonuses.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user bonuses.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user bonuses.</span>
-<span class="sd">            sort (Union[List[str], UserBonusSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            private_comment (Optional[str]): Comments for the requester.</span>
+<span class="sd">            id_lt (Optional[str]): Bonuses with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Bonuses with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Bonuses with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Bonuses with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Bonuses awarded before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Bonuses awarded before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Bonuses awarded after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Bonuses awarded after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], UserBonusSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserBonusSearchResult: The first &quot;limit&quot; user bonuses in &quot;items&quot;.</span>
@@ -1440,20 +1514,23 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            scope (Optional[UserRestriction.Scope]): : How to search user restrictions.</span>
-<span class="sd">            user_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            project_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            sort (Union[List[str], UserRestrictionSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned.</span>
+<span class="sd">            scope (Optional[UserRestriction.Scope]): The scope of the ban</span>
+<span class="sd">        		* ALL_PROJECTS</span>
+<span class="sd">        		* PROJECT</span>
+<span class="sd">        		* POOL</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            project_id (Optional[str]): The ID of the project that is blocked.</span>
+<span class="sd">            pool_id (Optional[str]): The ID of the pool that is blocked.</span>
+<span class="sd">            id_lt (Optional[str]): Bans with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Bans with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Bans with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Bans with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Bans created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Bans created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Bans created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Bans created after or on the specified date.</span>
+<span class="sd">            sort (Union[List[str], UserRestrictionSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserRestrictionSearchResult: The first &quot;limit&quot; user restrictions in &quot;items&quot;.</span>
@@ -1472,23 +1549,23 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search user skills.</span>
-<span class="sd">            user_id (Optional[str]): : How to search user skills.</span>
-<span class="sd">            skill_id (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user skills.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_lt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_lte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_gt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_gte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            sort (Union[List[str], UserSkillSortItems, None]): : How to sort result. Defaults to None.</span>
-<span class="sd">            limit (Optional[int]): : Limit on the number of results returned.</span>
+<span class="sd">            name (Optional[str]): Skill name.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            skill_id (Optional[str]): Skill ID.</span>
+<span class="sd">            id_lt (Optional[str]): Skills with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Skills with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Skills with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Skills with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Skills created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Skills created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Skills created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Skills created on or after the specified date.</span>
+<span class="sd">            modified_lt (Optional[datetime]): Skills that changed before the specified date.</span>
+<span class="sd">            modified_lte (Optional[datetime]): Skills that changed before the specified date.</span>
+<span class="sd">            modified_gt (Optional[datetime]): Skills changed after the specified date.</span>
+<span class="sd">            modified_gte (Optional[datetime]): Skills created on or after the specified date.</span>
+<span class="sd">            sort (Union[List[str], UserSkillSortItems, None]): How to sort result. Defaults to None.</span>
+<span class="sd">            limit (Optional[int]): Limit on the number of results returned.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserSkillSearchResult: The first &quot;limit&quot; user skills in &quot;items&quot;.</span>
@@ -1505,7 +1582,7 @@
 <span class="sd">        You can request up to 10 metrics at a time.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            stats (List[AnalyticsRequest]): : Analytics queries list.</span>
+<span class="sd">            stats (List[AnalyticsRequest]): Analytics queries list.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            operations.Operation: An operation that you can wait for to get the required statistics.</span>
@@ -1525,7 +1602,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific assignment</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            assignment_id (str): : ID of assignment.</span>
+<span class="sd">            assignment_id (str): ID of assignment.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Assignment: The solution read as a result.</span>
@@ -1540,23 +1617,30 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Assignment.Status]): : How to search assignments.</span>
-<span class="sd">            task_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            task_suite_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            user_id (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search assignments.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search assignments.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_lt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_lte (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_gt (Optional[datetime]): : How to search assignments.</span>
-<span class="sd">            submitted_gte (Optional[datetime]): : How to search assignments.</span>
+<span class="sd">            status (Optional[Assignment.Status]): Status of an assigned task suite (Detailed status description in Assignment.Status):</span>
+<span class="sd">        		* ACTIVE</span>
+<span class="sd">        		* SUBMITTED</span>
+<span class="sd">        		* ACCEPTED</span>
+<span class="sd">        		* REJECTED</span>
+<span class="sd">        		* SKIPPED</span>
+<span class="sd">        		* EXPIRED</span>
+<span class="sd">            task_id (Optional[str]): The task ID in suites generated automatically using &quot;smart mixing&quot;.</span>
+<span class="sd">        		You will get responses for task suites that contain the specified task.</span>
+<span class="sd">            task_suite_id (Optional[str]): ID of a task suite.</span>
+<span class="sd">            pool_id (Optional[str]): Pool ID.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            id_lt (Optional[str]): Task suites with an assignment ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Task suites with an assignment ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Task suites with an assignment ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Task suites with an assignment ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Task suites assigned before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Task suites assigned before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Task suites assigned after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Task suites assigned after or on the specified date.</span>
+<span class="sd">            submitted_lt (Optional[datetime]): Task suites completed before the specified date.</span>
+<span class="sd">            submitted_lte (Optional[datetime]): Task suites completed before or on the specified date.</span>
+<span class="sd">            submitted_gt (Optional[datetime]): Task suites completed after the specified date.</span>
+<span class="sd">            submitted_gte (Optional[datetime]): Task suites completed after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Assignment: The next object corresponding to the request parameters.</span>
@@ -1578,12 +1662,13 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : From which pool the results are loaded.</span>
-<span class="sd">            status (Optional[List[GetAssignmentsTsvParameters.Status]]): : Filters for the results and the set of fields that will be in the dataframe.</span>
-<span class="sd">            start_time_from (Optional[datetime]): : Filters for the results and the set of fields that will be in the dataframe.</span>
-<span class="sd">            start_time_to (Optional[datetime]): : Filters for the results and the set of fields that will be in the dataframe.</span>
-<span class="sd">            exclude_banned (Optional[bool]): : Filters for the results and the set of fields that will be in the dataframe.</span>
-<span class="sd">            field (Optional[List[GetAssignmentsTsvParameters.Field]]): : Filters for the results and the set of fields that will be in the dataframe.</span>
+<span class="sd">            pool_id (str): From which pool the results are loaded.</span>
+<span class="sd">            status (Optional[List[GetAssignmentsTsvParameters.Status]]): Assignments in which statuses will be downloaded.</span>
+<span class="sd">            start_time_from (Optional[datetime]): Upload assignments submitted after the specified date and time.</span>
+<span class="sd">            start_time_to (Optional[datetime]): Upload assignments submitted before the specified date and time.</span>
+<span class="sd">            exclude_banned (Optional[bool]): Exclude answers from banned performers, even if assignments in suitable status &quot;ACCEPTED&quot;.</span>
+<span class="sd">            field (Optional[List[GetAssignmentsTsvParameters.Field]]): The names of the fields to be unloaded. Only the field names from the Assignment class, all other fields</span>
+<span class="sd">        		are added by default.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            pd.DataFrame: DataFrame with all results. Contains groups of fields with prefixes:</span>
@@ -1602,7 +1687,7 @@
 <span class="sd">        To download attachments as a file use &quot;TolokaClient.download_attachment&quot; method.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            attachment_id (str): : ID of attachment.</span>
+<span class="sd">            attachment_id (str): ID of attachment.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Attachment: The attachment metadata read as a result.</span>
@@ -1617,21 +1702,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search attachments.</span>
-<span class="sd">            type (Optional[Attachment.Type]): : How to search attachments.</span>
-<span class="sd">            user_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            assignment_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            owner_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            owner_company_id (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search attachments.</span>
+<span class="sd">            name (Optional[str]): File name.</span>
+<span class="sd">            type (Optional[Attachment.Type]): Attachment type. Currently the key can have only one value - ASSIGNMENT_ATTACHMENT.</span>
+<span class="sd">            user_id (Optional[str]): ID of the user who uploaded the file(s).</span>
+<span class="sd">            assignment_id (Optional[str]): Assignment ID.</span>
+<span class="sd">            pool_id (Optional[str]): Pool ID.</span>
+<span class="sd">            owner_id (Optional[str]): Optional[str]</span>
+<span class="sd">            owner_company_id (Optional[str]): Optional[str]</span>
+<span class="sd">            id_lt (Optional[str]): Files with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Files with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Files with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Files with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Files uploaded by users before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Files uploaded by users before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Files uploaded by users after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Files uploaded by users after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Attachment: The next object corresponding to the request parameters.</span>
@@ -1646,16 +1731,16 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            folder (Optional[Folder]): : How to search attachments.</span>
-<span class="sd">            folder_ne (Optional[Folder]): : How to search attachments.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search attachments.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search attachments.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search attachments.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search attachments.</span>
+<span class="sd">            folder (Optional[Folder]): Folders to search for the thread</span>
+<span class="sd">            folder_ne (Optional[Folder]): Folders to not search for the thread</span>
+<span class="sd">            id_lt (Optional[str]): Threads with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Threads with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Threads with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Threads with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Threads created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Threads created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Threads created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Threads created after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            MessageThread: The next object corresponding to the request parameters.</span>
@@ -1669,7 +1754,7 @@
 <span class="sd">        &quot;wait_operation&quot; method.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            operation_id (str): : ID of the operation.</span>
+<span class="sd">            operation_id (str): ID of the operation.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Operation: The operation.</span>
@@ -1684,7 +1769,7 @@
 <span class="sd">        Logs are only available for the last month.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            operation_id (str): : ID of the operation.</span>
+<span class="sd">            operation_id (str): ID of the operation.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            List[OperationLogItem]: Logs for the operation.</span>
@@ -1695,7 +1780,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific pool</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool.</span>
+<span class="sd">            pool_id (str): ID of the pool.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: The pool.</span>
@@ -1710,20 +1795,24 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Pool.Status]): : How to search pools.</span>
-<span class="sd">            project_id (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search pools.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search pools.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_lt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_lte (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_gt (Optional[datetime]): : How to search pools.</span>
-<span class="sd">            last_started_gte (Optional[datetime]): : How to search pools.</span>
+<span class="sd">            status (Optional[Pool.Status]): Pool status</span>
+<span class="sd">        		* OPEN</span>
+<span class="sd">        		* CLOSED</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">        		* LOCKED</span>
+<span class="sd">            project_id (Optional[str]): ID of the project to which the pool is attached.</span>
+<span class="sd">            id_lt (Optional[str]): Pools with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Pools with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Pools with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Pools with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Pools created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Pools created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Pools created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Pools created after or on the specified date.</span>
+<span class="sd">            last_started_lt (Optional[datetime]): Pools that were last opened before the specified date.</span>
+<span class="sd">            last_started_lte (Optional[datetime]): Pools that were last opened on or before the specified date.</span>
+<span class="sd">            last_started_gt (Optional[datetime]): Pools that were last opened after the specified date.</span>
+<span class="sd">            last_started_gte (Optional[datetime]): Pools that were last opened on or after the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Pool: The next object corresponding to the request parameters.</span>
@@ -1734,7 +1823,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific project</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project_id (str): : ID of the project.</span>
+<span class="sd">            project_id (str): ID of the project.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Project: The project.</span>
@@ -1749,15 +1838,17 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Project.ProjectStatus]): : How to search projects.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search projects.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search projects.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search projects.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search projects.</span>
+<span class="sd">            status (Optional[Project.ProjectStatus]): Status of the project, from Project.ProjectStatus:</span>
+<span class="sd">        		* ACTIVE</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">            id_lt (Optional[str]): Projects with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Projects with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Projects with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Projects with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Projects created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Projects created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Projects created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Projects created after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Project: The next object corresponding to the request parameters.</span>
@@ -1776,7 +1867,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific skill</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            skill_id (str): : ID of the skill.</span>
+<span class="sd">            skill_id (str): ID of the skill.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Skill: The skill.</span>
@@ -1791,15 +1882,15 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search skills.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search skills.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search skills.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search skills.</span>
+<span class="sd">            name (Optional[str]): Skill name.</span>
+<span class="sd">            id_lt (Optional[str]): Skills with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Skills with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Skills with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Skills with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Skills created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Skills created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Skills created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Skills created on or after the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Skill: The next object corresponding to the request parameters.</span>
@@ -1820,7 +1911,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific task</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_id (str): : ID of the task.</span>
+<span class="sd">            task_id (str): ID of the task.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Task: The task.</span>
@@ -1831,7 +1922,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific task suite</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suite_id (str): : ID of the task suite.</span>
+<span class="sd">            task_suite_id (str): ID of the task suite.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuite: The task suite.</span>
@@ -1846,21 +1937,22 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_id (Optional[str]): : How to search task suites.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search task suites.</span>
-<span class="sd">            overlap (Optional[int]): : How to search task suites.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search task suites.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search task suites.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search task suites.</span>
-<span class="sd">            overlap_lt (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_lte (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_gt (Optional[int]): : How to search task suites.</span>
-<span class="sd">            overlap_gte (Optional[int]): : How to search task suites.</span>
+<span class="sd">            task_id (Optional[str]): The task ID in suites generated automatically using &quot;smart mixing&quot;.</span>
+<span class="sd">        		You will get task suites that contain the specified task.</span>
+<span class="sd">            pool_id (Optional[str]): ID of the pool to get task suites from.</span>
+<span class="sd">            overlap (Optional[int]): Suites with an overlap equal to the specified value.</span>
+<span class="sd">            id_lt (Optional[str]): Task suites with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Task suites with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Task suites with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Task suites with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Task suites created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Task suites created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Task suites created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Task suites created after or on the specified date.</span>
+<span class="sd">            overlap_lt (Optional[int]): Suites with an overlap less than the specified value.</span>
+<span class="sd">            overlap_lte (Optional[int]): Suites with an overlap less than or equal to the specified value.</span>
+<span class="sd">            overlap_gt (Optional[int]): Suites with an overlap greater than the specified value.</span>
+<span class="sd">            overlap_gte (Optional[int]): Suites with an overlap greater than or equal to the specified value.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            TaskSuite: The next object corresponding to the request parameters.</span>
@@ -1875,20 +1967,20 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (Optional[str]): : How to search tasks.</span>
-<span class="sd">            overlap (Optional[int]): : How to search tasks.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search tasks.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search tasks.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search tasks.</span>
-<span class="sd">            overlap_lt (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_lte (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_gt (Optional[int]): : How to search tasks.</span>
-<span class="sd">            overlap_gte (Optional[int]): : How to search tasks.</span>
+<span class="sd">            pool_id (Optional[str]): ID of the pool to get tasks from.</span>
+<span class="sd">            overlap (Optional[int]): Tasks with an overlap equal to the specified value.</span>
+<span class="sd">            id_lt (Optional[str]): Tasks with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Tasks with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Tasks with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Tasks with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Tasks created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Tasks created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Tasks created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Tasks created after or on the specified date.</span>
+<span class="sd">            overlap_lt (Optional[int]): Tasks with an overlap less than the specified value.</span>
+<span class="sd">            overlap_lte (Optional[int]): Tasks with an overlap equal to the specified value.</span>
+<span class="sd">            overlap_gt (Optional[int]): Tasks with an overlap greater than the specified value.</span>
+<span class="sd">            overlap_gte (Optional[int]): Tasks with an overlap equal to the specified value.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Task: The next object corresponding to the request parameters.</span>
@@ -1899,7 +1991,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific training</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training.</span>
+<span class="sd">            training_id (str): ID of the training.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: The training.</span>
@@ -1914,20 +2006,24 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            status (Optional[Training.Status]): : How to search trainings.</span>
-<span class="sd">            project_id (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search trainings.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search trainings.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_lt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_lte (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_gt (Optional[datetime]): : How to search trainings.</span>
-<span class="sd">            last_started_gte (Optional[datetime]): : How to search trainings.</span>
+<span class="sd">            status (Optional[Training.Status]): Training pool status:</span>
+<span class="sd">        		* OPEN</span>
+<span class="sd">        		* CLOSED</span>
+<span class="sd">        		* ARCHIVED</span>
+<span class="sd">        		* LOCKED</span>
+<span class="sd">            project_id (Optional[str]): ID of the project to which the training pool is attached.</span>
+<span class="sd">            id_lt (Optional[str]): Training pools with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Training pools with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Training pools with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Training pools with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Training pools created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Training pools created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Training pools created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Training pools created after or on the specified date.</span>
+<span class="sd">            last_started_lt (Optional[datetime]): Training pools that were last opened before the specified date.</span>
+<span class="sd">            last_started_lte (Optional[datetime]): Training pools that were last opened on or before the specified date.</span>
+<span class="sd">            last_started_gt (Optional[datetime]): Training pools that were last opened after the specified date.</span>
+<span class="sd">            last_started_gte (Optional[datetime]): Training pools that were last opened on or after the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            Training: The next object corresponding to the request parameters.</span>
@@ -1938,7 +2034,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific user bonus</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_bonus_id (str): : ID of the user bonus.</span>
+<span class="sd">            user_bonus_id (str): ID of the user bonus.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserBonus: The user bonus.</span>
@@ -1953,16 +2049,16 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_id (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            private_comment (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user bonus.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user bonus.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user bonus.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user bonus.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user bonus.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            private_comment (Optional[str]): Comments for the requester.</span>
+<span class="sd">            id_lt (Optional[str]): Bonuses with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Bonuses with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Bonuses with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Bonuses with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Bonuses awarded before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Bonuses awarded before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Bonuses awarded after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Bonuses awarded after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            UserBonus: The next object corresponding to the request parameters.</span>
@@ -1973,7 +2069,7 @@
         <span class="sd">&quot;&quot;&quot;Reads one specific user restriction</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_restriction_id (str): : ID of the user restriction.</span>
+<span class="sd">            user_restriction_id (str): ID of the user restriction.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserRestriction: The user restriction.</span>
@@ -1988,18 +2084,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            scope (Optional[UserRestriction.Scope]): : How to search user restrictions.</span>
-<span class="sd">            user_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            project_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            pool_id (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user restrictions.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user restrictions.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user restrictions.</span>
+<span class="sd">            scope (Optional[UserRestriction.Scope]): The scope of the ban</span>
+<span class="sd">        		* ALL_PROJECTS</span>
+<span class="sd">        		* PROJECT</span>
+<span class="sd">        		* POOL</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            project_id (Optional[str]): The ID of the project that is blocked.</span>
+<span class="sd">            pool_id (Optional[str]): The ID of the pool that is blocked.</span>
+<span class="sd">            id_lt (Optional[str]): Bans with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Bans with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Bans with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Bans with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Bans created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Bans created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Bans created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Bans created after or on the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            UserRestriction: The next object corresponding to the request parameters.</span>
@@ -2012,7 +2111,7 @@
 <span class="sd">        UserSkill describe the skill value for a specific performer.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_skill_id (str): : ID of the user skill.</span>
+<span class="sd">            user_skill_id (str): ID of the user skill.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserSkill: The skill value.</span>
@@ -2028,21 +2127,21 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            name (Optional[str]): : How to search user skills.</span>
-<span class="sd">            user_id (Optional[str]): : How to search user skills.</span>
-<span class="sd">            skill_id (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_lt (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_lte (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_gt (Optional[str]): : How to search user skills.</span>
-<span class="sd">            id_gte (Optional[str]): : How to search user skills.</span>
-<span class="sd">            created_lt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_lte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_gt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            created_gte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_lt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_lte (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_gt (Optional[datetime]): : How to search user skills.</span>
-<span class="sd">            modified_gte (Optional[datetime]): : How to search user skills.</span>
+<span class="sd">            name (Optional[str]): Skill name.</span>
+<span class="sd">            user_id (Optional[str]): Performer ID.</span>
+<span class="sd">            skill_id (Optional[str]): Skill ID.</span>
+<span class="sd">            id_lt (Optional[str]): Skills with an ID less than the specified value.</span>
+<span class="sd">            id_lte (Optional[str]): Skills with an ID less than or equal to the specified value.</span>
+<span class="sd">            id_gt (Optional[str]): Skills with an ID greater than the specified value.</span>
+<span class="sd">            id_gte (Optional[str]): Skills with an ID greater than or equal to the specified value.</span>
+<span class="sd">            created_lt (Optional[datetime]): Skills created before the specified date.</span>
+<span class="sd">            created_lte (Optional[datetime]): Skills created before or on the specified date.</span>
+<span class="sd">            created_gt (Optional[datetime]): Skills created after the specified date.</span>
+<span class="sd">            created_gte (Optional[datetime]): Skills created on or after the specified date.</span>
+<span class="sd">            modified_lt (Optional[datetime]): Skills that changed before the specified date.</span>
+<span class="sd">            modified_lte (Optional[datetime]): Skills that changed before the specified date.</span>
+<span class="sd">            modified_gt (Optional[datetime]): Skills changed after the specified date.</span>
+<span class="sd">            modified_gte (Optional[datetime]): Skills created on or after the specified date.</span>
 
 <span class="sd">        Yields:</span>
 <span class="sd">            UserSkill: The next object corresponding to the request parameters.</span>
@@ -2055,7 +2154,7 @@
 <span class="sd">        Performers will see your tasks only after that call.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be started.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be started.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Pool object with new status.</span>
@@ -2068,7 +2167,7 @@
 <span class="sd">        Performers will see your tasks only after that call.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be started.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be started.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            PoolOpenOperation: An operation upon completion of which you can get the pool with new status.</span>
@@ -2079,7 +2178,7 @@
         <span class="sd">&quot;&quot;&quot;Starts distributing tasks from the training</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training that will be started.</span>
+<span class="sd">            training_id (str): ID of the training that will be started.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: Training object with new status.</span>
@@ -2090,7 +2189,7 @@
         <span class="sd">&quot;&quot;&quot;Starts distributing tasks from the training, asynchronous version</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training that will be started.</span>
+<span class="sd">            training_id (str): ID of the training that will be started.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TrainingOpenOperation: An operation upon completion of which you can get the training with new status.</span>
@@ -2104,9 +2203,11 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            assignment_id (str): : What assignment will be affected.</span>
-<span class="sd">            public_comment (Optional[str]): : Object with new status and comment.</span>
-<span class="sd">            status (Optional[Assignment.Status]): : Object with new status and comment.</span>
+<span class="sd">            assignment_id (str): What assignment will be affected.</span>
+<span class="sd">            public_comment (Optional[str]): Public comment about an assignment. Why it was accepted or rejected.</span>
+<span class="sd">            status (Optional[Assignment.Status]): Status of an assigned task suite.</span>
+<span class="sd">        		* ACCEPTED - Accepted by the requester.</span>
+<span class="sd">        		* REJECTED - Rejected by the requester.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Assignment: Object with new status.</span>
@@ -2118,8 +2219,10 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be patched.</span>
-<span class="sd">            priority (Optional[int]): : New priority of the pool.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be patched.</span>
+<span class="sd">            priority (Optional[int]): The priority of the pool in relation to other pools in the project with the same task</span>
+<span class="sd">        		price and set of filters. Users are assigned tasks with a higher priority first.</span>
+<span class="sd">        		Possible values: from -100 to 100.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Object with updated priority.</span>
@@ -2139,8 +2242,8 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_id (str): : ID of the task that will be changed.</span>
-<span class="sd">            baseline_solutions (Optional[List[Task.BaselineSolution]]): : New overlap value.</span>
+<span class="sd">            task_id (str): ID of the task that will be changed.</span>
+<span class="sd">            baseline_solutions (Optional[List[Task.BaselineSolution]]): </span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Task: Task with updated fields.</span>
@@ -2152,9 +2255,11 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_id (str): : ID of the task.</span>
-<span class="sd">            overlap (Optional[int]): : New overlap value.</span>
-<span class="sd">            infinite_overlap (Optional[bool]): : New overlap value.</span>
+<span class="sd">            task_id (str): ID of the task.</span>
+<span class="sd">            overlap (Optional[int]): Overlapping a set of tasks.</span>
+<span class="sd">            infinite_overlap (Optional[bool]): Issue a task with infinite overlap. Used, for example, for sets of training tasks to give them to all users:</span>
+<span class="sd">        		* True - Set infinite overlap.</span>
+<span class="sd">        		* False - Leave the overlap specified for the task or pool. Default Behaviour.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Task: Task with updated fields.</span>
@@ -2166,9 +2271,12 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suite_id (str): : ID of the task suite that will be changed.</span>
-<span class="sd">            issuing_order_override (Optional[float]): : New values.</span>
-<span class="sd">            open_pool (Optional[bool]): : New values.</span>
+<span class="sd">            task_suite_id (str): ID of the task suite that will be changed.</span>
+<span class="sd">            issuing_order_override (Optional[float]): The priority of a task suite among other sets in the pool. Defines the order in which</span>
+<span class="sd">        		task suites are assigned to performers. The larger the parameter value, the higher the priority.</span>
+<span class="sd">        		This parameter can be used if the pool has issue_task_suites_in_creation_order: true.</span>
+<span class="sd">        		Allowed values: from -99999.99999 to 99999.99999.</span>
+<span class="sd">            open_pool (Optional[bool]): Open the pool immediately after changing a task suite, if the pool is closed.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuite: Task suite with updated fields.</span>
@@ -2180,7 +2288,7 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_suite_id (str): : ID of the task suite.</span>
+<span class="sd">            task_suite_id (str): ID of the task suite.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            TaskSuite: Task suite with updated fields.</span>
@@ -2193,8 +2301,8 @@
 <span class="sd">        Used then your pool created with auto_accept_solutions=False parametr.</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            assignment_id (str): : What assignment will be rejected.</span>
-<span class="sd">            public_comment (str): : Message to the performer.</span>
+<span class="sd">            assignment_id (str): What assignment will be rejected.</span>
+<span class="sd">            public_comment (str): Message to the performer.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Assignment: Object with new status.</span>
@@ -2210,8 +2318,8 @@
         <span class="sd">&quot;&quot;&quot;Deletes a message chain from one or more folders (&quot;unread&quot;, &quot;important&quot; etc.)</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            message_thread_id (str): : ID of message chain.</span>
-<span class="sd">            folders (Union[List[Folder], MessageThreadFolders]): :  List of folders, where from to remove chain.</span>
+<span class="sd">            message_thread_id (str): ID of message chain.</span>
+<span class="sd">            folders (Union[List[Folder], MessageThreadFolders]):  List of folders, where from to remove chain.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            MessageThread: Full object by ID with updated folders.</span>
@@ -2222,8 +2330,8 @@
         <span class="sd">&quot;&quot;&quot;Replies to a message in thread</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            message_thread_id (str): : In which thread to reply.</span>
-<span class="sd">            reply (MessageThreadReply): : Reply message.</span>
+<span class="sd">            message_thread_id (str): In which thread to reply.</span>
+<span class="sd">            reply (MessageThreadReply): Reply message.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            MessageThread: New created message.</span>
@@ -2234,7 +2342,7 @@
         <span class="sd">&quot;&quot;&quot;Closes the performer&#39;s access to one or more projects</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            user_restriction (UserRestriction): : To whom and what to prohibit.</span>
+<span class="sd">            user_restriction (UserRestriction): To whom and what to prohibit.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserRestriction: Created restriction object.</span>
@@ -2246,9 +2354,9 @@
 
 
 <span class="sd">        Args:</span>
-<span class="sd">            skill_id (Optional[str]): : To whom and what value of the skill to set.</span>
-<span class="sd">            user_id (Optional[str]): : To whom and what value of the skill to set.</span>
-<span class="sd">            value (Optional[Decimal]): : To whom and what value of the skill to set.</span>
+<span class="sd">            skill_id (Optional[str]): Skill ID. What skill to set.</span>
+<span class="sd">            user_id (Optional[str]): User ID. Which user.</span>
+<span class="sd">            value (Optional[Decimal]): Fractional value of the skill. Minimum - 0, maximum - 100.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            UserSkill: Сreated fact of skill installation.</span>
@@ -2259,8 +2367,8 @@
         <span class="sd">&quot;&quot;&quot;Makes changes to the pool</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            pool_id (str): : ID of the pool that will be changed.</span>
-<span class="sd">            pool (Pool): : A pool object with all the fields: those that will be updated and those that will not.</span>
+<span class="sd">            pool_id (str): ID of the pool that will be changed.</span>
+<span class="sd">            pool (Pool): A pool object with all the fields: those that will be updated and those that will not.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Pool: Pool object with all fields.</span>
@@ -2271,8 +2379,8 @@
         <span class="sd">&quot;&quot;&quot;Makes changes to the project</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            project_id (str): : Project ID that will be changed.</span>
-<span class="sd">            project (Project): : A project object with all the fields: those that will be updated and those that will not.</span>
+<span class="sd">            project_id (str): Project ID that will be changed.</span>
+<span class="sd">            project (Project): A project object with all the fields: those that will be updated and those that will not.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Project: Project object with all fields.</span>
@@ -2283,8 +2391,8 @@
         <span class="sd">&quot;&quot;&quot;Makes changes to the skill</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            skill_id (str): : ID of the training that will be changed.</span>
-<span class="sd">            skill (Skill): : A skill object with all the fields: those that will be updated and those that will not.</span>
+<span class="sd">            skill_id (str): ID of the training that will be changed.</span>
+<span class="sd">            skill (Skill): A skill object with all the fields: those that will be updated and those that will not.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Skill: Modified skill object with all fields.</span>
@@ -2295,8 +2403,8 @@
         <span class="sd">&quot;&quot;&quot;Makes changes to the training</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            training_id (str): : ID of the training that will be changed.</span>
-<span class="sd">            training (Training): : A training object with all the fields: those that will be updated and those that will not.</span>
+<span class="sd">            training_id (str): ID of the training that will be changed.</span>
+<span class="sd">            training (Training): A training object with all the fields: those that will be updated and those that will not.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Training: Training object with all fields.</span>
@@ -2307,8 +2415,8 @@
         <span class="sd">&quot;&quot;&quot;Waits for the operation to complete, and return it</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            op (Operation): : ID of the operation.</span>
-<span class="sd">            timeout (timedelta): : How long to wait. Defaults to 10 minutes.</span>
+<span class="sd">            op (Operation): ID of the operation.</span>
+<span class="sd">            timeout (timedelta): How long to wait. Defaults to 10 minutes.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            Operation: Completed operation.</span>

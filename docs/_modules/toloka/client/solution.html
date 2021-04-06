@@ -159,14 +159,14 @@
             
   <h1>Source code for toloka.client.solution</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="Solution"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.solution.Solution">[docs]</a><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Performer response for one task</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        output_values ( Dict[str, Any]): Dictionary &quot;field name&quot; - &quot;response value&quot;, by the number of fields that should be in the response.</span>
+<span class="sd">        output_values (Dict[str, Any]): Dictionary &quot;field name&quot; - &quot;response value&quot;, by the number of fields that should be in the response.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_values</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

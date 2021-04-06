@@ -164,9 +164,9 @@
   <h1>Source code for toloka.client.project.template_builder.data</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">toloka.client.project.template_builder.base</span> <span class="kn">import</span> <span class="n">BaseComponent</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BaseData"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.data.BaseData">[docs]</a><span class="k">class</span> <span class="nc">BaseData</span><span class="p">(</span><span class="n">BaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Components used for working with data: input, output, or intermediate.</span>
@@ -186,9 +186,9 @@
 <span class="sd">    set an example of input data.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        path ( Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
+<span class="sd">        path (Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
 <span class="sd">    		path to the array element, specify its sequence number starting from zero, for example: items.0</span>
-<span class="sd">        default ( Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
+<span class="sd">        default (Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
 <span class="sd">    		some placeholders, for example, in the field.text component.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -207,9 +207,9 @@
 <span class="sd">    This data is not saved to the results. Use this data to calculate or store intermediate values.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        path ( Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
+<span class="sd">        path (Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
 <span class="sd">    		path to the array element, specify its sequence number starting from zero, for example: items.0</span>
-<span class="sd">        default ( Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
+<span class="sd">        default (Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
 <span class="sd">    		some placeholders, for example, in the field.text component.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -228,9 +228,9 @@
 <span class="sd">    This data is used in some auxiliary components, such as helper.transform.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        path ( Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
+<span class="sd">        path (Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
 <span class="sd">    		path to the array element, specify its sequence number starting from zero, for example: items.0</span>
-<span class="sd">        default ( Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
+<span class="sd">        default (Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
 <span class="sd">    		some placeholders, for example, in the field.text component.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -249,9 +249,9 @@
 <span class="sd">    This is what you get when you click the Send button.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        path ( Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
+<span class="sd">        path (Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
 <span class="sd">    		path to the array element, specify its sequence number starting from zero, for example: items.0</span>
-<span class="sd">        default ( Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
+<span class="sd">        default (Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
 <span class="sd">    		some placeholders, for example, in the field.text component.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -270,9 +270,9 @@
 <span class="sd">    It&#39;s only available in the field.list component.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        path ( Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
+<span class="sd">        path (Optional[Any]): Path to the property containing data. Dots are used as separators: path.to.some.element. To specify the</span>
 <span class="sd">    		path to the array element, specify its sequence number starting from zero, for example: items.0</span>
-<span class="sd">        default ( Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
+<span class="sd">        default (Optional[Any]): The value to be used as the default data. This value will be shown in the interface, so it might hide</span>
 <span class="sd">    		some placeholders, for example, in the field.text component.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 

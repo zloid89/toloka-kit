@@ -173,17 +173,17 @@
 <span class="kn">from</span> <span class="nn">toloka.client.user_restriction</span> <span class="kn">import</span> <span class="n">UserRestriction</span>
 <span class="kn">from</span> <span class="nn">toloka.client.user_skill</span> <span class="kn">import</span> <span class="n">UserSkill</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="AggregatedSolutionSearchResult"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.search_results.AggregatedSolutionSearchResult">[docs]</a><span class="k">class</span> <span class="nc">AggregatedSolutionSearchResult</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;The list of found AggregatedSolutions and whether there is something else on the original request</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[AggregatedSolution]]): List of found AggregatedSolution</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[AggregatedSolution]]): List of found AggregatedSolution</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -201,8 +201,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_assignments(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Assignment]]): List of found assignments</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Assignment]]): List of found assignments</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -220,8 +220,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_attachments(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Attachment]]): List of found Attachment</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Attachment]]): List of found Attachment</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -239,8 +239,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_message_threads(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[MessageThread]]): List of found MessageThread</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[MessageThread]]): List of found MessageThread</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -258,8 +258,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_projects(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Project]]): List of found projects</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Project]]): List of found projects</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -277,8 +277,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_pools(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Pool]]): List of found pools</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Pool]]): List of found pools</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -296,8 +296,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_skill(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Skill]]): List of found skills</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Skill]]): List of found skills</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -315,8 +315,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_tasks(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Task]]): List of found tasks</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Task]]): List of found tasks</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -334,8 +334,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_task_suites(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[TaskSuite]]): List of found sets of tasks</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[TaskSuite]]): List of found sets of tasks</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -353,8 +353,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_trainings(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[Training]]): List of found training pools</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[Training]]): List of found training pools</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -372,8 +372,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_user_bonuses(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[UserBonus]]): List of found user bonuses</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[UserBonus]]): List of found user bonuses</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -391,8 +391,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_user_restrictions(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[UserRestriction]]): List of found user restrictions</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[UserRestriction]]): List of found user restrictions</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -410,8 +410,8 @@
 <span class="sd">    It&#39;s better to use TolokaClient.get_user_skills(), which already implements the correct handling of the search result.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[List[UserSkill]]): List of found user skills</span>
-<span class="sd">        has_more ( Optional[bool]): Whether the list is complete:</span>
+<span class="sd">        items (Optional[List[UserSkill]]): List of found user skills</span>
+<span class="sd">        has_more (Optional[bool]): Whether the list is complete:</span>
 <span class="sd">    		* True - Not all elements are included in the output due to restrictions in the limit parameter.</span>
 <span class="sd">    		* False - The output lists all the items.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

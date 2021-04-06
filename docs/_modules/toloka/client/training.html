@@ -163,11 +163,11 @@
 <span class="kn">from</span> <span class="nn">toloka.client.owner</span> <span class="kn">import</span> <span class="n">Owner</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">overload</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">overload</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="Training"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.training.Training">[docs]</a><span class="k">class</span> <span class="nc">Training</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Training pool</span>
@@ -177,33 +177,33 @@
 <span class="sd">     - Practice performers before the main pool and figure out how to respond correctly.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        project_id ( Optional[str]): ID of the project to which the training pool belongs.</span>
-<span class="sd">        private_name ( Optional[str]): Training pool name (only visible to the requester).</span>
-<span class="sd">        may_contain_adult_content ( Optional[bool]): The presence of adult content in learning tasks.</span>
-<span class="sd">        assignment_max_duration_seconds ( Optional[int]): Time to complete a set of tasks in seconds.</span>
+<span class="sd">        project_id (Optional[str]): ID of the project to which the training pool belongs.</span>
+<span class="sd">        private_name (Optional[str]): Training pool name (only visible to the requester).</span>
+<span class="sd">        may_contain_adult_content (Optional[bool]): The presence of adult content in learning tasks.</span>
+<span class="sd">        assignment_max_duration_seconds (Optional[int]): Time to complete a set of tasks in seconds.</span>
 <span class="sd">    		It is recommended to allocate at least 60 seconds for a set of tasks</span>
 <span class="sd">    		(taking into account the time for loading the page, sending responses).</span>
-<span class="sd">        mix_tasks_in_creation_order ( Optional[bool]): The order in which tasks are included in sets:</span>
+<span class="sd">        mix_tasks_in_creation_order (Optional[bool]): The order in which tasks are included in sets:</span>
 <span class="sd">    		* True - Default Behaviour. Include tasks in sets in the order they were loaded.</span>
 <span class="sd">    		* False - Include tasks in sets in random order.</span>
-<span class="sd">        shuffle_tasks_in_task_suite ( Optional[bool]): Order of tasks within the task set:</span>
+<span class="sd">        shuffle_tasks_in_task_suite (Optional[bool]): Order of tasks within the task set:</span>
 <span class="sd">    		* true - Random. Default Behaviour.</span>
 <span class="sd">    		* false - The order in which the tasks were loaded.</span>
-<span class="sd">        training_tasks_in_task_suite_count ( Optional[int]): The number of tasks in the set.</span>
-<span class="sd">        task_suites_required_to_pass ( Optional[int]): The number of task suites that must be successfully completed to assign a skill</span>
+<span class="sd">        training_tasks_in_task_suite_count (Optional[int]): The number of tasks in the set.</span>
+<span class="sd">        task_suites_required_to_pass (Optional[int]): The number of task suites that must be successfully completed to assign a skill</span>
 <span class="sd">    		and access the main tasks.</span>
-<span class="sd">        retry_training_after_days ( Optional[int]): After how many days the replay will become available.</span>
-<span class="sd">        inherited_instructions ( Optional[bool]): Indicates whether to use a project statement.</span>
+<span class="sd">        retry_training_after_days (Optional[int]): After how many days the replay will become available.</span>
+<span class="sd">        inherited_instructions (Optional[bool]): Indicates whether to use a project statement.</span>
 <span class="sd">    		If training need their own instruction, then specify it in public_instructions. Default value - False.</span>
-<span class="sd">        public_instructions ( Optional[str]): Instructions for completing training tasks. May contain HTML markup.</span>
-<span class="sd">        metadata ( Optional[Dict[str, List[str]]]): </span>
-<span class="sd">        owner ( Optional[Owner]): Training pool owner.</span>
-<span class="sd">        id ( Optional[str]): Internal ID of the training pool. Read only.</span>
-<span class="sd">        status ( Optional[Status]): Training pool status. Read only.</span>
-<span class="sd">        last_close_reason ( Optional[CloseReason]): The reason the training pool was last closed.</span>
-<span class="sd">        created ( Optional[datetime]): UTC date and time of creation of the training pool in ISO 8601 format. Read only.</span>
-<span class="sd">        last_started ( Optional[datetime]): UTC date and time of the last start of the training pool in ISO 8601 format. Read only.</span>
-<span class="sd">        last_stopped ( Optional[datetime]): UTC date and time of the last stop of the training pool in ISO 8601 format. Read only.</span>
+<span class="sd">        public_instructions (Optional[str]): Instructions for completing training tasks. May contain HTML markup.</span>
+<span class="sd">        metadata (Optional[Dict[str, List[str]]]): </span>
+<span class="sd">        owner (Optional[Owner]): Training pool owner.</span>
+<span class="sd">        id (Optional[str]): Internal ID of the training pool. Read only.</span>
+<span class="sd">        status (Optional[Status]): Training pool status. Read only.</span>
+<span class="sd">        last_close_reason (Optional[CloseReason]): The reason the training pool was last closed.</span>
+<span class="sd">        created (Optional[datetime]): UTC date and time of creation of the training pool in ISO 8601 format. Read only.</span>
+<span class="sd">        last_started (Optional[datetime]): UTC date and time of the last start of the training pool in ISO 8601 format. Read only.</span>
+<span class="sd">        last_stopped (Optional[datetime]): UTC date and time of the last stop of the training pool in ISO 8601 format. Read only.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Training.CloseReason"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.training.Training.CloseReason">[docs]</a>    <span class="k">class</span> <span class="nc">CloseReason</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>

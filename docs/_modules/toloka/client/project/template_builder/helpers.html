@@ -169,11 +169,11 @@
     <span class="n">BaseComponent</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Union</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BaseHelperV1"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.helpers.BaseHelperV1">[docs]</a><span class="k">class</span> <span class="nc">BaseHelperV1</span><span class="p">(</span><span class="n">VersionedBaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Perform various operations, such as if-then-else or switch-case.</span>
@@ -195,7 +195,7 @@
 <span class="sd">    [1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[Any]]]): Arrays to combine.</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[Any]]]): Arrays to combine.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -225,7 +225,7 @@
 <span class="sd">    { &quot;foo&quot;: &quot;hello&quot;, &quot;bar&quot;: &quot;world&quot; }</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        entries ( Optional[Union[BaseComponent, List[Union[BaseComponent, Entry]]]]): Source array of key-value pairs.</span>
+<span class="sd">        entries (Optional[Union[BaseComponent, List[Union[BaseComponent, Entry]]]]): Source array of key-value pairs.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Entries2ObjectHelperV1.Entry"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.helpers.Entries2ObjectHelperV1.Entry">[docs]</a>    <span class="k">class</span> <span class="nc">Entry</span><span class="p">(</span><span class="n">BaseTemplate</span><span class="p">):</span>
@@ -259,9 +259,9 @@
 <span class="sd">    comment field appear when a negative response is received, but nothing happens when a positive response is received.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        condition ( Optional[BaseComponent]): Condition to check.</span>
-<span class="sd">        else_ ( Optional[Any]): The element that is returned if the condition from the condition property is false (returns false).</span>
-<span class="sd">        then ( Optional[Any]): The element that is returned if the condition from the condition property is true (returns true).</span>
+<span class="sd">        condition (Optional[BaseComponent]): Condition to check.</span>
+<span class="sd">        else_ (Optional[Any]): The element that is returned if the condition from the condition property is false (returns false).</span>
+<span class="sd">        then (Optional[Any]): The element that is returned if the condition from the condition property is true (returns true).</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">then</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">else_</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -279,8 +279,8 @@
 <span class="sd">    You can add a delimiter to separate the strings, such as a space or comma.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        by ( Optional[Any]): Delimiter for joining strings. You can use any number of characters in the delimiter.</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[Union[BaseComponent, str]]]]): Array of strings to join.</span>
+<span class="sd">        by (Optional[Any]): Delimiter for joining strings. You can use any number of characters in the delimiter.</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[Union[BaseComponent, str]]]]): Array of strings to join.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">by</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -313,7 +313,7 @@
 <span class="sd">    ]</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): The object to convert.</span>
+<span class="sd">        data (Optional[Any]): The object to convert.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -332,10 +332,10 @@
 <span class="sd">    Because the helper.replace helper returns a string, it can be used in properties that accept string values.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Data to perform the replacement on.</span>
-<span class="sd">        find ( Optional[Union[BaseComponent, str]]): The value to search for — the string whose occurrences must be found in data and replaced with the string</span>
+<span class="sd">        data (Optional[Any]): Data to perform the replacement on.</span>
+<span class="sd">        find (Optional[Union[BaseComponent, str]]): The value to search for — the string whose occurrences must be found in data and replaced with the string</span>
 <span class="sd">    		from replace.</span>
-<span class="sd">        replace ( Optional[Union[BaseComponent, str]]): The value to insert in place of the matches of the find value.</span>
+<span class="sd">        replace (Optional[Union[BaseComponent, str]]): The value to insert in place of the matches of the find value.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">find</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">replace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -353,8 +353,8 @@
 <span class="sd">    The list of available search engines is specified in the engine enum.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        engine ( Optional[Union[BaseComponent, Engine]]): Search engine.</span>
-<span class="sd">        query ( Optional[Any]): Search query.</span>
+<span class="sd">        engine (Optional[Union[BaseComponent, Engine]]): Search engine.</span>
+<span class="sd">        query (Optional[Any]): Search query.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SearchQueryHelperV1.Engine"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.helpers.SearchQueryHelperV1.Engine">[docs]</a>    <span class="k">class</span> <span class="nc">Engine</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -403,16 +403,16 @@
 <span class="sd">          property (if it is not defined, the helper returns nothing).</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        cases ( Optional[Union[BaseComponent, List[Union[BaseComponent, Case]]]]): An array of objects consisting of condition and result property pairs.</span>
-<span class="sd">        default ( Optional[Any]): Element that is returned if none of the checked conditions returned true.</span>
+<span class="sd">        cases (Optional[Union[BaseComponent, List[Union[BaseComponent, Case]]]]): An array of objects consisting of condition and result property pairs.</span>
+<span class="sd">        default (Optional[Any]): Element that is returned if none of the checked conditions returned true.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="SwitchHelperV1.Case"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.helpers.SwitchHelperV1.Case">[docs]</a>    <span class="k">class</span> <span class="nc">Case</span><span class="p">(</span><span class="n">BaseTemplate</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Case.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            condition ( Optional[BaseComponent]): Condition to check.</span>
-<span class="sd">            result ( Optional[Any]): The element that is returned if the condition from the condition property is true (returns true).</span>
+<span class="sd">            condition (Optional[BaseComponent]): Condition to check.</span>
+<span class="sd">            result (Optional[Any]): The element that is returned if the condition from the condition property is true (returns true).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -440,8 +440,8 @@
 <span class="sd">    view.text component.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): The text string in which you want to change the case.</span>
-<span class="sd">        transformation ( Optional[Union[BaseComponent, Transformation]]): Conversion mode.</span>
+<span class="sd">        data (Optional[Any]): The text string in which you want to change the case.</span>
+<span class="sd">        transformation (Optional[Union[BaseComponent, Transformation]]): Conversion mode.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TextTransformHelperV1.Transformation"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.helpers.TextTransformHelperV1.Transformation">[docs]</a>    <span class="k">class</span> <span class="nc">Transformation</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -468,9 +468,9 @@
 <span class="sd">    useful if the number of images in the array is unknown in advance</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        into ( Optional[Any]): Template to transform elements in the array. The array value can be substituted using the data.local</span>
+<span class="sd">        into (Optional[Any]): Template to transform elements in the array. The array value can be substituted using the data.local</span>
 <span class="sd">    		component. To do this, use the construction { &quot;type&quot;: &quot;data.local&quot;, &quot;path&quot;: &quot;item&quot;}</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[Any]]]): The array that you want to convert. You can specify an array in three ways:</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[Any]]]): The array that you want to convert. You can specify an array in three ways:</span>
 <span class="sd">    		* Specify the array itself. Example: [&quot;one&quot;, &quot;two&quot;, &quot;three&quot;].</span>
 <span class="sd">    		* Insert a reference to data (input, output, or internal). Example: {&quot;type&quot;: &quot;data.input&quot;,</span>
 <span class="sd">    		    &quot;path&quot;: &quot;path.to.data&quot;}.</span>

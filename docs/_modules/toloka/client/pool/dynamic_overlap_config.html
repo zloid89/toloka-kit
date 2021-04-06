@@ -163,10 +163,10 @@
 <span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="DynamicOverlapConfig"><a class="viewcode-back" href="../../../../source/toloka.client.pool.html#toloka.client.pool.dynamic_overlap_config.DynamicOverlapConfig">[docs]</a><span class="k">class</span> <span class="nc">DynamicOverlapConfig</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Dynamic overlap setting.</span>
@@ -177,12 +177,12 @@
 <span class="sd">    When all pool tasks are completed, aggregate the responses.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        type ( Optional[Type]): The algorithm for dynamic overlap.</span>
-<span class="sd">        max_overlap ( Optional[int]): Maximum overlap. Must be higher than the values in defaults. Minimum — 1. Maximum — 30000.</span>
-<span class="sd">        min_confidence ( Optional[float]): Minimum confidence of the aggregated response. Values from 0 to 1.</span>
-<span class="sd">        answer_weight_skill_id ( Optional[str]): A skill that determines the weight of the performer&#39;s response. For best results, use</span>
+<span class="sd">        type (Optional[Type]): The algorithm for dynamic overlap.</span>
+<span class="sd">        max_overlap (Optional[int]): Maximum overlap. Must be higher than the values in defaults. Minimum — 1. Maximum — 30000.</span>
+<span class="sd">        min_confidence (Optional[float]): Minimum confidence of the aggregated response. Values from 0 to 1.</span>
+<span class="sd">        answer_weight_skill_id (Optional[str]): A skill that determines the weight of the performer&#39;s response. For best results, use</span>
 <span class="sd">    		a skill calculated as percentage of correct responses in control tasks.</span>
-<span class="sd">        fields ( Optional[List[Field]]): Output data fields to use for aggregating responses.</span>
+<span class="sd">        fields (Optional[List[Field]]): Output data fields to use for aggregating responses.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="DynamicOverlapConfig.Field"><a class="viewcode-back" href="../../../../source/toloka.client.pool.html#toloka.client.pool.dynamic_overlap_config.DynamicOverlapConfig.Field">[docs]</a>    <span class="k">class</span> <span class="nc">Field</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
@@ -193,7 +193,7 @@
 <span class="sd">        Don&#39;t specify several fields if their values depend on each other.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            name ( Optional[str]): The output data field name.</span>
+<span class="sd">            name (Optional[str]): The output data field name.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

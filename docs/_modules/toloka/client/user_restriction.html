@@ -162,9 +162,9 @@
 <span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="DurationUnit"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.user_restriction.DurationUnit">[docs]</a><span class="k">class</span> <span class="nc">DurationUnit</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;An enumeration.&quot;&quot;&quot;</span>
@@ -183,11 +183,11 @@
 <span class="sd">    You can also unlock access.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        user_id ( Optional[str]): Which performer is denied access.</span>
-<span class="sd">        private_comment ( Optional[str]): A comment for you why access to this performer was restricted.</span>
-<span class="sd">        will_expire ( Optional[datetime]): When access is restored. If you do not set the parameter, then the access restriction is permanent.</span>
-<span class="sd">        id ( Optional[str]): The identifier of a specific fact of access restriction. Read only.</span>
-<span class="sd">        created ( Optional[datetime]): Date and time when the fact of access restriction was created. Read only.</span>
+<span class="sd">        user_id (Optional[str]): Which performer is denied access.</span>
+<span class="sd">        private_comment (Optional[str]): A comment for you why access to this performer was restricted.</span>
+<span class="sd">        will_expire (Optional[datetime]): When access is restored. If you do not set the parameter, then the access restriction is permanent.</span>
+<span class="sd">        id (Optional[str]): The identifier of a specific fact of access restriction. Read only.</span>
+<span class="sd">        created (Optional[datetime]): Date and time when the fact of access restriction was created. Read only.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How you can lock access for one user on one project.</span>
@@ -254,7 +254,7 @@
     <span class="sd">&quot;&quot;&quot;Forbid the performer from doing tasks from a specific pool</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        pool_id ( Optional[str]): Pool identifier to which access will be denied.</span>
+<span class="sd">        pool_id (Optional[str]): Pool identifier to which access will be denied.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">private_comment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">will_expire</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pool_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -270,7 +270,7 @@
     <span class="sd">&quot;&quot;&quot;Forbid the performer from doing tasks from a specific project</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        project_id ( Optional[str]): Project identifier to which access will be denied.</span>
+<span class="sd">        project_id (Optional[str]): Project identifier to which access will be denied.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">private_comment</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">will_expire</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">project_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

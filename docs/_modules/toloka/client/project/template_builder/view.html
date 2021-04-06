@@ -164,18 +164,18 @@
   <h1>Source code for toloka.client.project.template_builder.view</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">toloka.client.project.template_builder.base</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">ListDirection</span><span class="p">,</span>
-    <span class="n">BaseComponent</span><span class="p">,</span>
-    <span class="n">BaseTemplate</span><span class="p">,</span>
     <span class="n">VersionedBaseComponent</span><span class="p">,</span>
-    <span class="n">ListSize</span>
+    <span class="n">BaseTemplate</span><span class="p">,</span>
+    <span class="n">ListDirection</span><span class="p">,</span>
+    <span class="n">ListSize</span><span class="p">,</span>
+    <span class="n">BaseComponent</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Union</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BaseViewV1"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.view.BaseViewV1">[docs]</a><span class="k">class</span> <span class="nc">BaseViewV1</span><span class="p">(</span><span class="n">VersionedBaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Elements displayed in the interface, such as text, list, audio player, or image.</span>
@@ -194,10 +194,10 @@
 <span class="sd">    When clicking the button, an action specified in the action property is called.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Button text.</span>
-<span class="sd">        action ( Optional[BaseComponent]): Action called when clicking the button.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): Button text.</span>
+<span class="sd">        action (Optional[BaseComponent]): Action called when clicking the button.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -215,11 +215,11 @@
 <span class="sd">    You can use both plain text and other visual components inside it.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        content ( Optional[BaseComponent]): Content of the block with important information.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        theme ( Optional[Union[BaseComponent, Theme]]): Determines the block color.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        content (Optional[BaseComponent]): Content of the block with important information.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        theme (Optional[Union[BaseComponent, Theme]]): Determines the block color.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="AlertViewV1.Theme"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.view.AlertViewV1.Theme">[docs]</a>    <span class="k">class</span> <span class="nc">Theme</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -250,11 +250,11 @@
 <span class="sd">    Format support depends on the user&#39;s browser, OS, and device. We recommend using MP3.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        loop ( Optional[Union[BaseComponent, bool]]): Automatically replay audio.</span>
-<span class="sd">        url ( Optional[Any]): Audio link.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        loop (Optional[Union[BaseComponent, bool]]): Automatically replay audio.</span>
+<span class="sd">        url (Optional[Any]): Audio link.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">loop</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -276,12 +276,12 @@
 <span class="sd">    If you set the defaultOpened property to true, the block is expanded immediately, but it can be collapsed.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Block heading.</span>
-<span class="sd">        content ( Optional[BaseComponent]): Content hidden in the block.</span>
-<span class="sd">        default_opened ( Optional[Union[BaseComponent, bool]]): If true, the block is immediately displayed in expanded form. By default, false (the block is</span>
+<span class="sd">        label (Optional[Any]): Block heading.</span>
+<span class="sd">        content (Optional[BaseComponent]): Content hidden in the block.</span>
+<span class="sd">        default_opened (Optional[Union[BaseComponent, bool]]): If true, the block is immediately displayed in expanded form. By default, false (the block is</span>
 <span class="sd">    		collapsed).</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">default_opened</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -299,16 +299,16 @@
 <span class="sd">    You can place other components inside the frame.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        content ( Optional[BaseComponent]): Content inside the frame.</span>
-<span class="sd">        full_height ( Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        content (Optional[BaseComponent]): Content inside the frame.</span>
+<span class="sd">        full_height (Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
 <span class="sd">    		of 400 pixels.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        max_width ( Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
-<span class="sd">        ratio ( Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        max_width (Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
+<span class="sd">        ratio (Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
 <span class="sd">    		height (second number). Not valid if full_height=true.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">full_height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ratio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -326,9 +326,9 @@
 <span class="sd">    You can place extra elements in the center of the delimiter, like a popup hint and label.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): A label in the center of the delimiter. Line breaks are not supported.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): A label in the center of the delimiter. Line breaks are not supported.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -344,11 +344,11 @@
     <span class="sd">&quot;&quot;&quot;Groups components visually into framed blocks.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Group heading.</span>
-<span class="sd">        content ( Optional[BaseComponent]): Content of a group block.</span>
-<span class="sd">        hint ( Optional[Any]): Explanation of the group heading. To insert a new line, use</span>
+<span class="sd">        label (Optional[Any]): Group heading.</span>
+<span class="sd">        content (Optional[BaseComponent]): Content of a group block.</span>
+<span class="sd">        hint (Optional[Any]): Explanation of the group heading. To insert a new line, use</span>
 <span class="sd">    		.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -364,15 +364,15 @@
     <span class="sd">&quot;&quot;&quot;Displays the web page at the URL in an iframe window.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        full_height ( Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        full_height (Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
 <span class="sd">    		of 400 pixels.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        max_width ( Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
-<span class="sd">        ratio ( Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        max_width (Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
+<span class="sd">        ratio (Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
 <span class="sd">    		height (second number). Not valid if full_height=true.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">full_height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ratio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -388,26 +388,26 @@
     <span class="sd">&quot;&quot;&quot;Displays an image.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        full_height ( Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        full_height (Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
 <span class="sd">    		of 400 pixels.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        max_width ( Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
-<span class="sd">        no_border ( Optional[Union[BaseComponent, bool]]): Controls the display of a frame around an image. By default, true (the frame is hidden). Set false</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        max_width (Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
+<span class="sd">        no_border (Optional[Union[BaseComponent, bool]]): Controls the display of a frame around an image. By default, true (the frame is hidden). Set false</span>
 <span class="sd">    		to display the frame.</span>
-<span class="sd">        no_lazy_load ( Optional[Union[BaseComponent, bool]]): Disables lazy loading. If true, images start loading immediately, even if they aren&#39;t in the</span>
+<span class="sd">        no_lazy_load (Optional[Union[BaseComponent, bool]]): Disables lazy loading. If true, images start loading immediately, even if they aren&#39;t in the</span>
 <span class="sd">    		viewport. Useful for icons. By default, false (lazy loading is enabled). In this mode, images start loading</span>
 <span class="sd">    		only when they get in the user&#39;s field of view.</span>
-<span class="sd">        popup ( Optional[Union[BaseComponent, bool]]): Specifies whether opening a full-size image with a click is allowed. By default, it is true (allowed).</span>
-<span class="sd">        ratio ( Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
+<span class="sd">        popup (Optional[Union[BaseComponent, bool]]): Specifies whether opening a full-size image with a click is allowed. By default, it is true (allowed).</span>
+<span class="sd">        ratio (Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of two numbers that sets the relative dimensions of the sides: width (first number) to</span>
 <span class="sd">    		height (second number). Not valid if full_height=true.</span>
-<span class="sd">        scrollable ( Optional[Union[BaseComponent, bool]]): When set to true, an image has scroll bars if it doesn&#39;t fit in the parent element.</span>
+<span class="sd">        scrollable (Optional[Union[BaseComponent, bool]]): When set to true, an image has scroll bars if it doesn&#39;t fit in the parent element.</span>
 <span class="sd">    		If false, the image fits in the parent element and, when clicked, opens in its original size in the module</span>
 <span class="sd">    		window.</span>
 <span class="sd">    		Images in SVG format with no size specified always fit in their parent elements.</span>
-<span class="sd">        url ( Optional[Any]): Image link.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        url (Optional[Any]): Image link.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">full_height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">no_border</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">no_lazy_load</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">popup</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">ratio</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">rotatable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">scrollable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -425,24 +425,24 @@
 <span class="sd">    If you don&#39;t need labels, use view.list.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[Union[BaseComponent, Item]]]]): List items.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): The minimum width of list content. If the component width is less than the specified value, it</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[Union[BaseComponent, Item]]]]): List items.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): The minimum width of list content. If the component width is less than the specified value, it</span>
 <span class="sd">    		switches to compact mode.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="LabeledListViewV1.Item"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.view.LabeledListViewV1.Item">[docs]</a>    <span class="k">class</span> <span class="nc">Item</span><span class="p">(</span><span class="n">BaseTemplate</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Item.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            center_label ( Optional[Union[BaseComponent, bool]]): If true, a label is center-aligned relative to the content of a list item (content). Use it</span>
+<span class="sd">            center_label (Optional[Union[BaseComponent, bool]]): If true, a label is center-aligned relative to the content of a list item (content). Use it</span>
 <span class="sd">        		if the list consists of large items, such as images or multi-line text.</span>
 <span class="sd">        		By default, false (the label is aligned to the top of the content block).</span>
-<span class="sd">            content ( Optional[BaseComponent]): List item content.</span>
-<span class="sd">            hint ( Optional[Any]): A pop-up hint displayed next to a label.</span>
-<span class="sd">            label ( Optional[Any]): A label displayed next to a list item.</span>
+<span class="sd">            content (Optional[BaseComponent]): List item content.</span>
+<span class="sd">            hint (Optional[Any]): A pop-up hint displayed next to a label.</span>
+<span class="sd">            label (Optional[Any]): A label displayed next to a list item.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">center_label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -473,11 +473,11 @@
 <span class="sd">    To insert a link with a search query, use helper.search-query.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        content ( Optional[Any]): Link text displayed to the user.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        url ( Optional[Any]): Link URL.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        content (Optional[Any]): Link text displayed to the user.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        url (Optional[Any]): Link URL.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -493,13 +493,13 @@
     <span class="sd">&quot;&quot;&quot;Block for displaying data in a list.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        direction ( Optional[Union[BaseComponent, ListDirection]]): Determines the direction of the list.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[BaseComponent]]]):  Array of list items.</span>
-<span class="sd">        size ( Optional[Union[BaseComponent, ListSize]]): Specifies the size of the margins between elements. Acceptable values in ascending order: s, m (default</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        direction (Optional[Union[BaseComponent, ListDirection]]): Determines the direction of the list.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[BaseComponent]]]):  Array of list items.</span>
+<span class="sd">        size (Optional[Union[BaseComponent, ListSize]]): Specifies the size of the margins between elements. Acceptable values in ascending order: s, m (default</span>
 <span class="sd">    		value).</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">direction</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">ListDirection</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">ListSize</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -545,10 +545,10 @@
 <span class="sd">    If you need formatted text, use view.markdown.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        content ( Optional[Any]): The text displayed in the block. To insert a new line, use</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        content (Optional[Any]): The text displayed in the block. To insert a new line, use</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -570,16 +570,16 @@
 <span class="sd">    cropped.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        label ( Optional[Any]): Label above the component.</span>
-<span class="sd">        full_height ( Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
+<span class="sd">        label (Optional[Any]): Label above the component.</span>
+<span class="sd">        full_height (Optional[Union[BaseComponent, bool]]): If true, the element takes up all the vertical free space. The element is set to a minimum height</span>
 <span class="sd">    		of 400 pixels.</span>
-<span class="sd">        hint ( Optional[Any]): Hint text.</span>
-<span class="sd">        max_width ( Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
+<span class="sd">        hint (Optional[Any]): Hint text.</span>
+<span class="sd">        max_width (Optional[Union[BaseComponent, float]]): Maximum width of the element in pixels, must be greater than min_width.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): Minimum width of the element in pixels. Takes priority over max_width.</span>
 <span class="sd">        ratio: The aspect ratio of the video block. An array of two numbers: the first sets the width of the block and</span>
 <span class="sd">    		the second sets the height.</span>
 <span class="sd">        url: Link to the video file.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">full_height</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

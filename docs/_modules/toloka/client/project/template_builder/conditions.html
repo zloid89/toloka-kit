@@ -167,11 +167,11 @@
     <span class="n">BaseComponent</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Union</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BaseConditionV1"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.conditions.BaseConditionV1">[docs]</a><span class="k">class</span> <span class="nc">BaseConditionV1</span><span class="p">(</span><span class="n">VersionedBaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check an expression against a condition.</span>
@@ -195,8 +195,8 @@
 <span class="sd">    these components.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        conditions ( Optional[Union[BaseComponent, List[BaseComponent]]]): A set of conditions that must be met.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        conditions (Optional[Union[BaseComponent, List[BaseComponent]]]): A set of conditions that must be met.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -216,8 +216,8 @@
 <span class="sd">    If you need all conditions to be met, use the condition.all component. You can also combine these components.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        conditions ( Optional[Union[BaseComponent, List[BaseComponent]]]): A set of conditions, at least one of which must be met.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        conditions (Optional[Union[BaseComponent, List[BaseComponent]]]): A set of conditions, at least one of which must be met.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -239,8 +239,8 @@
 <span class="sd">        Data for the input field (field.*) that contains condition.empty.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Data to check. If not specified, data is checked in the component that contains condition.empty.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        data (Optional[Any]): Data to check. If not specified, data is checked in the component that contains condition.empty.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -261,15 +261,15 @@
 <span class="sd">    conditions to get the value.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Original value. If not specified, it uses the value returned by the parent component (the component that</span>
+<span class="sd">        data (Optional[Any]): Original value. If not specified, it uses the value returned by the parent component (the component that</span>
 <span class="sd">    		contains condition.equals).</span>
 <span class="sd">    		How to pass a value:</span>
 <span class="sd">    		    * Specify the value itself, like the number 42 or a string.</span>
 <span class="sd">    		    * Get the value from your data.</span>
 <span class="sd">    		    * Refer to another element using $ref.</span>
 <span class="sd">    		    * Use helpers and conditions to get the value.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
-<span class="sd">        to ( Optional[Any]): The value to compare with the original.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        to (Optional[Any]): The value to compare with the original.</span>
 <span class="sd">    		How to pass a value:</span>
 <span class="sd">    		* Specify the value itself, like the number 42 or a string.</span>
 <span class="sd">    		* Get the value from your data.</span>
@@ -295,8 +295,8 @@
 <span class="sd">    This condition can be used in the view.link component and also anywhere you can use (conditions).</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
-<span class="sd">        url ( Optional[Any]): The link that must be clicked.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        url (Optional[Any]): The link that must be clicked.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -314,8 +314,8 @@
 <span class="sd">    For example, if the specified condition is met (returns true), then condition.not will return false.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        condition ( Optional[BaseComponent]): The condition for which the inverse is returned.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        condition (Optional[BaseComponent]): The condition for which the inverse is returned.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -334,7 +334,7 @@
 <span class="sd">    view.audio and view.video. The condition.played check only works in the player&#39;s validation property.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -353,7 +353,7 @@
 <span class="sd">    view.audio and view.video. The condition.played-fully check only works in the player&#39;s validation property.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -372,9 +372,9 @@
 <span class="sd">    parent component field (the one that contains the condition.required component).</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Data to be filled in. If the property is not specified, the data of the parent component (the one that</span>
+<span class="sd">        data (Optional[Any]): Data to be filled in. If the property is not specified, the data of the parent component (the one that</span>
 <span class="sd">    		contains condition.required) is used.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -397,9 +397,9 @@
 <span class="sd">        * If you already have a prepared JSON Schema configuration for the check and you want to use it.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Data that should be checked.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
-<span class="sd">        schema ( Optional[Dict]): The schema for validating data.</span>
+<span class="sd">        data (Optional[Any]): Data that should be checked.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        schema (Optional[Dict]): The schema for validating data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -415,9 +415,9 @@
     <span class="sd">&quot;&quot;&quot;Checks that the array in data is a subarray for parent.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        data ( Optional[Any]): Subarray that is checked for in parent.</span>
-<span class="sd">        hint ( Optional[Any]): Validation error message that the user will see.</span>
-<span class="sd">        parent ( Optional[Any]): The array where data is searched for.</span>
+<span class="sd">        data (Optional[Any]): Subarray that is checked for in parent.</span>
+<span class="sd">        hint (Optional[Any]): Validation error message that the user will see.</span>
+<span class="sd">        parent (Optional[Any]): The array where data is searched for.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">hint</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">parent</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

@@ -161,9 +161,9 @@
 <span></span><span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="Skill"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.skill.Skill">[docs]</a><span class="k">class</span> <span class="nc">Skill</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;A skill is an assessment of some aspect of a user&#39;s responses (a number from 0 to 100)</span>
@@ -174,20 +174,20 @@
 <span class="sd">    You can use skills to select users who perform pool tasks.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        name ( Optional[str]): Skill name.</span>
-<span class="sd">        private_comment ( Optional[str]): Comments on the skill (only visible to the requester).</span>
-<span class="sd">        hidden ( Optional[bool]): Access to information about the skill (the name and value) for users:</span>
+<span class="sd">        name (Optional[str]): Skill name.</span>
+<span class="sd">        private_comment (Optional[str]): Comments on the skill (only visible to the requester).</span>
+<span class="sd">        hidden (Optional[bool]): Access to information about the skill (the name and value) for users:</span>
 <span class="sd">    		* True - Closed. Default behaviour.</span>
 <span class="sd">    		* False - Opened.</span>
-<span class="sd">        skill_ttl_hours ( Optional[int]): The skill&#39;s &quot;time to live&quot; after the last update (in hours). The skill is removed from</span>
+<span class="sd">        skill_ttl_hours (Optional[int]): The skill&#39;s &quot;time to live&quot; after the last update (in hours). The skill is removed from</span>
 <span class="sd">    		the user&#39;s profile if the skill level hasn&#39;t been updated for the specified length of time.</span>
-<span class="sd">        training ( Optional[bool]): Whether the skill is related to a training pool:</span>
+<span class="sd">        training (Optional[bool]): Whether the skill is related to a training pool:</span>
 <span class="sd">    		* True - The skill level is calculated from training pool tasks.</span>
 <span class="sd">    		* False - The skill isn&#39;t related to a training pool.</span>
-<span class="sd">        public_name ( Optional[Dict[str, str]]): Skill name for other users. You can provide a name in several languages (the message will come in the user&#39;s language).</span>
-<span class="sd">        public_requester_description ( Optional[Dict[str, str]]): Skill description text for other users. You can provide text in several languages (the message will come in the user&#39;s language).</span>
-<span class="sd">        id ( Optional[str]): Skill ID. Read only field.</span>
-<span class="sd">        created ( Optional[datetime]): The UTC date and time when the skill was created. Read only field.</span>
+<span class="sd">        public_name (Optional[Dict[str, str]]): Skill name for other users. You can provide a name in several languages (the message will come in the user&#39;s language).</span>
+<span class="sd">        public_requester_description (Optional[Dict[str, str]]): Skill description text for other users. You can provide text in several languages (the message will come in the user&#39;s language).</span>
+<span class="sd">        id (Optional[str]): Skill ID. Read only field.</span>
+<span class="sd">        created (Optional[datetime]): The UTC date and time when the skill was created. Read only field.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How to create new skill.</span>

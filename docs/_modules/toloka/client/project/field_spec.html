@@ -163,10 +163,10 @@
 <span></span><span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="FieldType"><a class="viewcode-back" href="../../../../source/toloka.client.project.html#toloka.client.project.field_spec.FieldType">[docs]</a><span class="k">class</span> <span class="nc">FieldType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;An enumeration.&quot;&quot;&quot;</span>
@@ -197,8 +197,8 @@
 <span class="sd">    validation parameters (such as string length).</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -214,9 +214,9 @@
     <span class="sd">&quot;&quot;&quot;A boolean field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        allowed_values ( Optional[List[bool]]): Allowed values</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        allowed_values (Optional[List[bool]]): Allowed values</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -232,11 +232,11 @@
     <span class="sd">&quot;&quot;&quot;A string field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_length ( Optional[int]): Minimum length of the string</span>
-<span class="sd">        max_length ( Optional[int]): Maximum length of the string</span>
-<span class="sd">        allowed_values ( Optional[List[str]]): Allowed values</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_length (Optional[int]): Minimum length of the string</span>
+<span class="sd">        max_length (Optional[int]): Maximum length of the string</span>
+<span class="sd">        allowed_values (Optional[List[str]]): Allowed values</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -252,11 +252,11 @@
     <span class="sd">&quot;&quot;&quot;An integer field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_value ( Optional[int]): Minimum value of the number</span>
-<span class="sd">        max_value ( Optional[int]): Maximum value of the number</span>
-<span class="sd">        allowed_values ( Optional[List[int]]): Allowed values</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_value (Optional[int]): Minimum value of the number</span>
+<span class="sd">        max_value (Optional[int]): Maximum value of the number</span>
+<span class="sd">        allowed_values (Optional[List[int]]): Allowed values</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -272,10 +272,10 @@
     <span class="sd">&quot;&quot;&quot;An floating point field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_value ( Optional[float]): Minimum value of the number</span>
-<span class="sd">        max_value ( Optional[float]): Maximum value of the number</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_value (Optional[float]): Minimum value of the number</span>
+<span class="sd">        max_value (Optional[float]): Maximum value of the number</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -291,8 +291,8 @@
     <span class="sd">&quot;&quot;&quot;A url field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -308,8 +308,8 @@
     <span class="sd">&quot;&quot;&quot;A file field specification (only for output data)</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -325,9 +325,9 @@
     <span class="sd">&quot;&quot;&quot;Geographical coordinates field specification, such as “53.910236,27.531110</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        current_location ( Optional[bool]): put the user&#39;s current coordinates in the field (true/false).</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        current_location (Optional[bool]): put the user&#39;s current coordinates in the field (true/false).</span>
 <span class="sd">    		Used in tasks for the mobile app.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -344,8 +344,8 @@
     <span class="sd">&quot;&quot;&quot;A JSON object field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -361,11 +361,11 @@
     <span class="sd">&quot;&quot;&quot;A boolean array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        allowed_values ( Optional[List[bool]]): Allowed values</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        allowed_values (Optional[List[bool]]): Allowed values</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -381,13 +381,13 @@
     <span class="sd">&quot;&quot;&quot;A string array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_length ( Optional[int]): Minimum length of the string</span>
-<span class="sd">        max_length ( Optional[int]): Maximum length of the string</span>
-<span class="sd">        allowed_values ( Optional[List[str]]): Allowed values</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_length (Optional[int]): Minimum length of the string</span>
+<span class="sd">        max_length (Optional[int]): Maximum length of the string</span>
+<span class="sd">        allowed_values (Optional[List[str]]): Allowed values</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_length</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -403,13 +403,13 @@
     <span class="sd">&quot;&quot;&quot;An integer array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_value ( Optional[int]): Minimum value of the number</span>
-<span class="sd">        max_value ( Optional[int]): Maximum value of the number</span>
-<span class="sd">        allowed_values ( Optional[List[int]]): Allowed values</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_value (Optional[int]): Minimum value of the number</span>
+<span class="sd">        max_value (Optional[int]): Maximum value of the number</span>
+<span class="sd">        allowed_values (Optional[List[int]]): Allowed values</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">allowed_values</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -425,12 +425,12 @@
     <span class="sd">&quot;&quot;&quot;An floating point array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_value ( Optional[float]): Minimum value of the number</span>
-<span class="sd">        max_value ( Optional[float]): Maximum value of the number</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_value (Optional[float]): Minimum value of the number</span>
+<span class="sd">        max_value (Optional[float]): Maximum value of the number</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -446,10 +446,10 @@
     <span class="sd">&quot;&quot;&quot;A url array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -465,10 +465,10 @@
     <span class="sd">&quot;&quot;&quot;A file array field specification (only for output data)</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -484,12 +484,12 @@
     <span class="sd">&quot;&quot;&quot;Geographical coordinates array field specification</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        required ( Optional[bool]): Whether the object or input field is required</span>
-<span class="sd">        hidden ( Optional[bool]): Whether or not to hide the input value field from the user</span>
-<span class="sd">        current_location ( Optional[bool]): put the user&#39;s current coordinates in the field (true/false).</span>
+<span class="sd">        required (Optional[bool]): Whether the object or input field is required</span>
+<span class="sd">        hidden (Optional[bool]): Whether or not to hide the input value field from the user</span>
+<span class="sd">        current_location (Optional[bool]): put the user&#39;s current coordinates in the field (true/false).</span>
 <span class="sd">    		Used in tasks for the mobile app</span>
-<span class="sd">        min_size ( Optional[int]): Minimum number of elements in the array</span>
-<span class="sd">        min_size ( Optional[int]): Maximum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Minimum number of elements in the array</span>
+<span class="sd">        min_size (Optional[int]): Maximum number of elements in the array</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">required</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">hidden</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">current_location</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">max_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

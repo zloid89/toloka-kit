@@ -169,11 +169,11 @@
     <span class="n">BaseComponent</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Union</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BasePluginV1"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.plugins.BasePluginV1">[docs]</a><span class="k">class</span> <span class="nc">BasePluginV1</span><span class="p">(</span><span class="n">VersionedBaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plugins that provide expanded functionality. For example, you can use plugin.hotkeys to set up shortcuts.</span>
@@ -214,10 +214,10 @@
 <span class="sd">    You can also set conditions in the conditions property that must be met in order for the trigger to fire.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        action ( Optional[BaseComponent]): The action to perform when the trigger fires.</span>
-<span class="sd">        condition ( Optional[BaseComponent]): The condition that must be met in order to fire the trigger.</span>
-<span class="sd">        fire_immediately ( Optional[Union[BaseComponent, bool]]): Flag indicating whether the trigger should be fired immediately after the task is loaded.</span>
-<span class="sd">        on_change_of ( Optional[BaseComponent]): The data that triggers the action when changed.</span>
+<span class="sd">        action (Optional[BaseComponent]): The action to perform when the trigger fires.</span>
+<span class="sd">        condition (Optional[BaseComponent]): The condition that must be met in order to fire the trigger.</span>
+<span class="sd">        fire_immediately (Optional[Union[BaseComponent, bool]]): Flag indicating whether the trigger should be fired immediately after the task is loaded.</span>
+<span class="sd">        on_change_of (Optional[BaseComponent]): The data that triggers the action when changed.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">condition</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fire_immediately</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">on_change_of</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -233,8 +233,8 @@
     <span class="sd">&quot;&quot;&quot;A plugin with extra settings for tasks in Toloka.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        layout ( Optional[Union[BaseComponent, TolokaPluginLayout]]): Settings for the task appearance in Toloka.</span>
-<span class="sd">        notifications ( Optional[Union[BaseComponent, List[BaseComponent]]]): Notifications shown at the top of the page.</span>
+<span class="sd">        layout (Optional[Union[BaseComponent, TolokaPluginLayout]]): Settings for the task appearance in Toloka.</span>
+<span class="sd">        notifications (Optional[Union[BaseComponent, List[BaseComponent]]]): Notifications shown at the top of the page.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="TolokaPluginV1.TolokaPluginLayout"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.plugins.TolokaPluginV1.TolokaPluginLayout">[docs]</a>    <span class="k">class</span> <span class="nc">TolokaPluginLayout</span><span class="p">(</span><span class="n">BaseTemplate</span><span class="p">):</span>

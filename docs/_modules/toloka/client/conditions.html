@@ -162,14 +162,14 @@
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.operators</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">CompareOperator</span><span class="p">,</span>
-    <span class="n">ComparableConditionMixin</span><span class="p">,</span>
+    <span class="n">IdentityConditionMixin</span><span class="p">,</span>
     <span class="n">IdentityOperator</span><span class="p">,</span>
-    <span class="n">IdentityConditionMixin</span>
+    <span class="n">ComparableConditionMixin</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="RuleConditionKey"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.conditions.RuleConditionKey">[docs]</a><span class="k">class</span> <span class="nc">RuleConditionKey</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;An enumeration.&quot;&quot;&quot;</span>
@@ -264,7 +264,7 @@
 <span class="sd">    This condition can work only with compare operator &#39;==&#39;.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        value ( Optional[Type]): Possible values:</span>
+<span class="sd">        value (Optional[Type]): Possible values:</span>
 <span class="sd">    		* conditions.AssessmentEvent.ACCEPT</span>
 <span class="sd">    		* conditions.AssessmentEvent.REJECT</span>
 
@@ -453,7 +453,7 @@
     <span class="sd">&quot;&quot;&quot;Reason for loss of access of the performer to the current pool</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        value ( Optional[Type]): exact reason</span>
+<span class="sd">        value (Optional[Type]): exact reason</span>
 <span class="sd">    		* SKILL_CHANGE - The performer no longer meets one or more filters.</span>
 <span class="sd">    		* RESTRICTION - The performer&#39;s access to tasks is blocked by a quality control rule (such as control tasks,</span>
 <span class="sd">    		    majority vote, fast answers, skipped assignments, or captcha).</span>

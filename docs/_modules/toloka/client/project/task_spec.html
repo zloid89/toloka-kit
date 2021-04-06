@@ -164,19 +164,19 @@
 <span class="kn">from</span> <span class="nn">toloka.client.project.field_spec</span> <span class="kn">import</span> <span class="n">FieldSpec</span>
 <span class="kn">from</span> <span class="nn">toloka.client.project.view_spec</span> <span class="kn">import</span> <span class="n">ViewSpec</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="TaskSpec"><a class="viewcode-back" href="../../../../source/toloka.client.project.html#toloka.client.project.task_spec.TaskSpec">[docs]</a><span class="k">class</span> <span class="nc">TaskSpec</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parameters for input and output data and the task interface.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        input_spec ( Optional[Dict[str, FieldSpec]]): The input data parameters for tasks. The complete list of parameters is shown in the</span>
+<span class="sd">        input_spec (Optional[Dict[str, FieldSpec]]): The input data parameters for tasks. The complete list of parameters is shown in the</span>
 <span class="sd">    		Input and output data table.</span>
-<span class="sd">        output_spec ( Optional[Dict[str, FieldSpec]]): Parameters for output data from the input fields. The complete list of parameters is</span>
+<span class="sd">        output_spec (Optional[Dict[str, FieldSpec]]): Parameters for output data from the input fields. The complete list of parameters is</span>
 <span class="sd">    		shown in the Input and output data table.</span>
-<span class="sd">        view_spec ( Optional[ViewSpec]): Description of the task interface.</span>
+<span class="sd">        view_spec (Optional[ViewSpec]): Description of the task interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">input_spec</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FieldSpec</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">output_spec</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">FieldSpec</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">view_spec</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ViewSpec</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

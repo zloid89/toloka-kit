@@ -162,9 +162,9 @@
 <span class="kn">from</span> <span class="nn">decimal</span> <span class="kn">import</span> <span class="n">Decimal</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="SetUserSkillRequest"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.user_skill.SetUserSkillRequest">[docs]</a><span class="k">class</span> <span class="nc">SetUserSkillRequest</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Parameters for setting the skill value of a specific performer</span>
@@ -173,9 +173,9 @@
 <span class="sd">    Usually, when calling TolokaClient.set_user_skill, you can use the expand version, passing all the class attributes to the call.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        skill_id ( Optional[str]): Skill ID. What skill to set.</span>
-<span class="sd">        user_id ( Optional[str]): User ID. Which user.</span>
-<span class="sd">        value ( Optional[Decimal]): Fractional value of the skill. Minimum - 0, maximum - 100.</span>
+<span class="sd">        skill_id (Optional[str]): Skill ID. What skill to set.</span>
+<span class="sd">        user_id (Optional[str]): User ID. Which user.</span>
+<span class="sd">        value (Optional[Decimal]): Fractional value of the skill. Minimum - 0, maximum - 100.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">skill_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Decimal</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -189,13 +189,13 @@
     <span class="sd">&quot;&quot;&quot;Describes the value of a specific skill for a specific performer</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        id ( Optional[str]): Internal identifier of the user&#39;s skill value.</span>
-<span class="sd">        skill_id ( Optional[str]): Skill identifier, which skill is installed.</span>
-<span class="sd">        user_id ( Optional[str]): User identifier, to which performer the skill is installed.</span>
-<span class="sd">        value ( Optional[int]): Skill value (from 0 to 100). Rough presentation.</span>
-<span class="sd">        exact_value ( Optional[Decimal]): Skill value (from 0 to 100). Exact representation.</span>
-<span class="sd">        created ( Optional[datetime]): Date and time when this skill was created for the performer.</span>
-<span class="sd">        modified ( Optional[datetime]): Date and time of the last skill change for the performer.</span>
+<span class="sd">        id (Optional[str]): Internal identifier of the user&#39;s skill value.</span>
+<span class="sd">        skill_id (Optional[str]): Skill identifier, which skill is installed.</span>
+<span class="sd">        user_id (Optional[str]): User identifier, to which performer the skill is installed.</span>
+<span class="sd">        value (Optional[int]): Skill value (from 0 to 100). Rough presentation.</span>
+<span class="sd">        exact_value (Optional[Decimal]): Skill value (from 0 to 100). Exact representation.</span>
+<span class="sd">        created (Optional[datetime]): Date and time when this skill was created for the performer.</span>
+<span class="sd">        modified (Optional[datetime]): Date and time of the last skill change for the performer.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">skill_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">user_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exact_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Decimal</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">modified</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

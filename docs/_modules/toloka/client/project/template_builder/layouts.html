@@ -168,11 +168,11 @@
     <span class="n">BaseComponent</span>
 <span class="p">)</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Dict</span><span class="p">,</span>
+    <span class="n">Optional</span><span class="p">,</span>
     <span class="n">List</span><span class="p">,</span>
     <span class="n">Any</span><span class="p">,</span>
-    <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Union</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Union</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="BaseLayoutV1"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.layouts.BaseLayoutV1">[docs]</a><span class="k">class</span> <span class="nc">BaseLayoutV1</span><span class="p">(</span><span class="n">VersionedBaseComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Options for positioning elements in the interface, such as in columns or side-by-side.</span>
@@ -196,10 +196,10 @@
 <span class="sd">    placed between the bars and takes up all available space.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        bar_after ( Optional[BaseComponent]): The bar displayed at the bottom edge of the component.</span>
-<span class="sd">        bar_before ( Optional[BaseComponent]): The bar displayed at the top edge of the component.</span>
-<span class="sd">        content ( Optional[BaseComponent]): The main content.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        bar_after (Optional[BaseComponent]): The bar displayed at the bottom edge of the component.</span>
+<span class="sd">        bar_before (Optional[BaseComponent]): The bar displayed at the top edge of the component.</span>
+<span class="sd">        content (Optional[BaseComponent]): The main content.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">bar_after</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">bar_before</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -217,19 +217,19 @@
 <span class="sd">    Use it to customize the display of content: set the column width and adjust the vertical alignment of content.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        full_height ( Optional[Union[BaseComponent, bool]]): Switches the component to column mode at full height and with individual scrolling. Otherwise, the</span>
+<span class="sd">        full_height (Optional[Union[BaseComponent, bool]]): Switches the component to column mode at full height and with individual scrolling. Otherwise, the</span>
 <span class="sd">    		height is determined by the height of the column that is filled in the most.</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[BaseComponent]]]): Columns to divide the interface into.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): The minimum width of the component; if it is narrower, columns are output sequentially, one by one.</span>
-<span class="sd">        ratio ( Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of values that specify the relative width of columns. For example, if you have 3 columns, the</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[BaseComponent]]]): Columns to divide the interface into.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): The minimum width of the component; if it is narrower, columns are output sequentially, one by one.</span>
+<span class="sd">        ratio (Optional[Union[BaseComponent, List[Union[BaseComponent, float]]]]): An array of values that specify the relative width of columns. For example, if you have 3 columns, the</span>
 <span class="sd">    		value [1,2,1] divides the space into 4 parts and the column in the middle is twice as large as the other</span>
 <span class="sd">    		columns.</span>
 <span class="sd">    		If the number of columns exceeds the number of values in the ratio property, the values are repeated. For</span>
 <span class="sd">    		example, if you have 4 columns and the ratio is set to [1,2], the result is the same as for [1,2,1,2].</span>
 <span class="sd">    		If the number of columns is less than the number of values in the ratio property, extra values are simply</span>
 <span class="sd">    		ignored.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
-<span class="sd">        vertical_align ( Optional[Union[BaseComponent, VerticalAlign]]): Vertical alignment of column content.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        vertical_align (Optional[Union[BaseComponent, VerticalAlign]]): Vertical alignment of column content.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="ColumnsLayoutV1.VerticalAlign"><a class="viewcode-back" href="../../../../../source/toloka.client.project.template_builder.html#toloka.client.project.template_builder.layouts.ColumnsLayoutV1.VerticalAlign">[docs]</a>    <span class="k">class</span> <span class="nc">VerticalAlign</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -261,11 +261,11 @@
 <span class="sd">    You can set the minimum width for data blocks.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        controls ( Optional[BaseComponent]): Components that let users perform the required actions.</span>
+<span class="sd">        controls (Optional[BaseComponent]): Components that let users perform the required actions.</span>
 <span class="sd">    		For example: field.checkbox-group or field.button-radio-group.</span>
-<span class="sd">        items ( Optional[Union[BaseComponent, List[BaseComponent]]]): An array of data blocks.</span>
-<span class="sd">        min_item_width ( Optional[Union[BaseComponent, float]]): The minimum width of a data block, at least 400 pixels.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        items (Optional[Union[BaseComponent, List[BaseComponent]]]): An array of data blocks.</span>
+<span class="sd">        min_item_width (Optional[Union[BaseComponent, float]]): The minimum width of a data block, at least 400 pixels.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">items</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_item_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -293,14 +293,14 @@
 <span class="sd">    To add an extra panel with controls, use the extraControls property.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        content ( Optional[BaseComponent]): Content placed in the main area.</span>
-<span class="sd">        controls ( Optional[BaseComponent]): Content of the control panel.</span>
-<span class="sd">        controls_width ( Optional[Union[BaseComponent, float]]): The width of the control panel in widescreen mode. In compact mode, the panel takes up the</span>
+<span class="sd">        content (Optional[BaseComponent]): Content placed in the main area.</span>
+<span class="sd">        controls (Optional[BaseComponent]): Content of the control panel.</span>
+<span class="sd">        controls_width (Optional[Union[BaseComponent, float]]): The width of the control panel in widescreen mode. In compact mode, the panel takes up the</span>
 <span class="sd">    		entire available width. Default: 200 pixels.</span>
-<span class="sd">        extra_controls ( Optional[BaseComponent]): An additional panel with controls. Located below the main panel.</span>
-<span class="sd">        min_width ( Optional[Union[BaseComponent, float]]): The minimum width, in pixels, for widescreen mode. If the component width becomes less than the</span>
+<span class="sd">        extra_controls (Optional[BaseComponent]): An additional panel with controls. Located below the main panel.</span>
+<span class="sd">        min_width (Optional[Union[BaseComponent, float]]): The minimum width, in pixels, for widescreen mode. If the component width becomes less than the</span>
 <span class="sd">    		specified value, the interface switches to compact mode. Default: 400 pixels.</span>
-<span class="sd">        validation ( Optional[BaseComponent]): Validation based on condition.</span>
+<span class="sd">        validation (Optional[BaseComponent]): Validation based on condition.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">,</span> <span class="n">validation</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">content</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">controls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">controls_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">extra_controls</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">min_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">BaseComponent</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

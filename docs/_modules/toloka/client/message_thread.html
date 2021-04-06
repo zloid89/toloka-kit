@@ -163,10 +163,10 @@
 <span class="kn">from</span> <span class="nn">toloka.client.filter</span> <span class="kn">import</span> <span class="n">FilterCondition</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="RecipientsSelectType"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.message_thread.RecipientsSelectType">[docs]</a><span class="k">class</span> <span class="nc">RecipientsSelectType</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;An enumeration.&quot;&quot;&quot;</span>
@@ -190,13 +190,13 @@
     <span class="sd">&quot;&quot;&quot;Interlocutor</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        id ( Optional[str]): ID of the sender or recipient.</span>
-<span class="sd">        role ( Optional[InterlocutorRole]): Role of the sender or recipient in Toloka:</span>
+<span class="sd">        id (Optional[str]): ID of the sender or recipient.</span>
+<span class="sd">        role (Optional[InterlocutorRole]): Role of the sender or recipient in Toloka:</span>
 <span class="sd">    		* USER — Performer.</span>
 <span class="sd">    		* REQUESTER</span>
 <span class="sd">    		* ADMINISTRATOR</span>
 <span class="sd">    		* SYSTEM — For messages sent automatically.</span>
-<span class="sd">        myself ( Optional[bool]): Marks a sender or recipient with your ID. If this is your ID, it is set to true.</span>
+<span class="sd">        myself (Optional[bool]): Marks a sender or recipient with your ID. If this is your ID, it is set to true.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Interlocutor.InterlocutorRole"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.message_thread.Interlocutor.InterlocutorRole">[docs]</a>    <span class="k">class</span> <span class="nc">InterlocutorRole</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
@@ -219,21 +219,21 @@
     <span class="sd">&quot;&quot;&quot;MessageThread</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        id ( Optional[str]): Message thread ID.</span>
-<span class="sd">        topic ( Optional[Dict[str, str]]): Message thread title.</span>
-<span class="sd">        interlocutors_inlined ( Optional[bool]): bool</span>
-<span class="sd">        interlocutors ( Optional[List[Interlocutor]]): List[Interlocutor]</span>
-<span class="sd">        messages_inlined ( Optional[bool]): Access to message threads:</span>
+<span class="sd">        id (Optional[str]): Message thread ID.</span>
+<span class="sd">        topic (Optional[Dict[str, str]]): Message thread title.</span>
+<span class="sd">        interlocutors_inlined (Optional[bool]): bool</span>
+<span class="sd">        interlocutors (Optional[List[Interlocutor]]): List[Interlocutor]</span>
+<span class="sd">        messages_inlined (Optional[bool]): Access to message threads:</span>
 <span class="sd">    		* True — The message is available in the messages field.</span>
 <span class="sd">    		* False — The message is available in a separate request.</span>
-<span class="sd">        messages ( Optional[List[Message]]): List[Message]</span>
-<span class="sd">        meta ( Optional[Meta]): Meta</span>
-<span class="sd">        answerable ( Optional[bool]): Whether the message can be responded to:</span>
+<span class="sd">        messages (Optional[List[Message]]): List[Message]</span>
+<span class="sd">        meta (Optional[Meta]): Meta</span>
+<span class="sd">        answerable (Optional[bool]): Whether the message can be responded to:</span>
 <span class="sd">    		* True — The performer can respond to the message.</span>
 <span class="sd">    		* False — The performer cannot respond to the message.</span>
-<span class="sd">        folders ( Optional[List[Folder]]): Folders where the thread is located.</span>
-<span class="sd">        compose_details ( Optional[ComposeDetails]): For messages that you sent: details of the POST request for creating the message.</span>
-<span class="sd">        created ( Optional[datetime]): Date the first message in the thread was created.</span>
+<span class="sd">        folders (Optional[List[Folder]]): Folders where the thread is located.</span>
+<span class="sd">        compose_details (Optional[ComposeDetails]): For messages that you sent: details of the POST request for creating the message.</span>
+<span class="sd">        created (Optional[datetime]): Date the first message in the thread was created.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="MessageThread.ComposeDetails"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.message_thread.MessageThread.ComposeDetails">[docs]</a>    <span class="k">class</span> <span class="nc">ComposeDetails</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
@@ -251,9 +251,9 @@
         <span class="sd">&quot;&quot;&quot;Message in the thread.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            text ( Optional[Dict[str, str]]): Message text.</span>
-<span class="sd">            from_ ( Optional[Interlocutor]): Information about the sender.</span>
-<span class="sd">            created ( Optional[datetime]): Date the message was created.</span>
+<span class="sd">            text (Optional[Dict[str, str]]): Message text.</span>
+<span class="sd">            from_ (Optional[Interlocutor]): Information about the sender.</span>
+<span class="sd">            created (Optional[datetime]): Date the message was created.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">from_</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Interlocutor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">created</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">datetime</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -298,15 +298,15 @@
     <span class="sd">&quot;&quot;&quot;MessageThreadCompose</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        recipients_select_type ( Optional[RecipientsSelectType]): Method for selecting recipients</span>
-<span class="sd">        topic ( Optional[Dict[str, str]]): Subject of the message. You can enter the subject in multiple</span>
+<span class="sd">        recipients_select_type (Optional[RecipientsSelectType]): Method for selecting recipients</span>
+<span class="sd">        topic (Optional[Dict[str, str]]): Subject of the message. You can enter the subject in multiple</span>
 <span class="sd">    		languages (the message is sent in the user&#39;s language).</span>
-<span class="sd">        text ( Optional[Dict[str, str]]): Message text. You can enter the text in multiple languages (the message is sent in the user&#39;s language)</span>
-<span class="sd">        answerable ( Optional[bool]): Whether the message can be responded to:</span>
+<span class="sd">        text (Optional[Dict[str, str]]): Message text. You can enter the text in multiple languages (the message is sent in the user&#39;s language)</span>
+<span class="sd">        answerable (Optional[bool]): Whether the message can be responded to:</span>
 <span class="sd">    		* True — Users can respond to the message.</span>
 <span class="sd">    		* False — Users can&#39;t respond to the message.</span>
-<span class="sd">        recipients_ids ( Optional[List[str]]): The list of IDs of users who will receive the message.</span>
-<span class="sd">        recipients_filter ( Optional[FilterCondition]): Filter for selecting recipients.</span>
+<span class="sd">        recipients_ids (Optional[List[str]]): The list of IDs of users who will receive the message.</span>
+<span class="sd">        recipients_filter (Optional[FilterCondition]): Filter for selecting recipients.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">recipients_select_type</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RecipientsSelectType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">topic</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">answerable</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">recipients_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">recipients_filter</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">FilterCondition</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

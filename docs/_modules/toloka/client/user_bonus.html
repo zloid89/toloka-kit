@@ -163,9 +163,9 @@
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.parameter</span> <span class="kn">import</span> <span class="n">Parameters</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="UserBonus"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.user_bonus.UserBonus">[docs]</a><span class="k">class</span> <span class="nc">UserBonus</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Issuing a bonus to a specific performer</span>
@@ -173,18 +173,18 @@
 <span class="sd">    It&#39;s addition to payment for completed tasks.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        user_id ( Optional[str]): Performer ID to whom the bonus will be issued.</span>
-<span class="sd">        amount ( Optional[Decimal]): The bonus amount in dollars. Can be from 0.01 to 100 dollars per user per time.</span>
-<span class="sd">        private_comment ( Optional[str]): Comments that are only visible to the requester.</span>
-<span class="sd">        public_title ( Optional[Any]): Message header for the user. You can provide a title in several languages</span>
+<span class="sd">        user_id (Optional[str]): Performer ID to whom the bonus will be issued.</span>
+<span class="sd">        amount (Optional[Decimal]): The bonus amount in dollars. Can be from 0.01 to 100 dollars per user per time.</span>
+<span class="sd">        private_comment (Optional[str]): Comments that are only visible to the requester.</span>
+<span class="sd">        public_title (Optional[Any]): Message header for the user. You can provide a title in several languages</span>
 <span class="sd">    		(the message will come in the user&#39;s language).</span>
-<span class="sd">        public_message ( Optional[Any]): Message text for the user. You can provide text in several languages</span>
+<span class="sd">        public_message (Optional[Any]): Message text for the user. You can provide text in several languages</span>
 <span class="sd">    		(the message will come in the user&#39;s language).</span>
-<span class="sd">        without_message ( Optional[bool]): Do not send a bonus message to the user. To award a bonus without a message, specify null</span>
+<span class="sd">        without_message (Optional[bool]): Do not send a bonus message to the user. To award a bonus without a message, specify null</span>
 <span class="sd">    		for public_title and public_message and True for without_message.</span>
-<span class="sd">        assignment_id ( Optional[str]): The answer to the task for which this bonus was issued.</span>
-<span class="sd">        id ( Optional[str]): Internal ID of the issued bonus. Read only.</span>
-<span class="sd">        created ( Optional[datetime]): Date the bonus was awarded, in UTC. Read only.</span>
+<span class="sd">        assignment_id (Optional[str]): The answer to the task for which this bonus was issued.</span>
+<span class="sd">        id (Optional[str]): Internal ID of the issued bonus. Read only.</span>
+<span class="sd">        created (Optional[datetime]): Date the bonus was awarded, in UTC. Read only.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How to create bonus with message for specific assignment.</span>
@@ -233,9 +233,9 @@
 <span class="sd">    to clarify the behavior when creating bonuses.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        operation_id ( Optional[str]): Operation ID. If asynchronous creation is used, by this identifier you can later get</span>
+<span class="sd">        operation_id (Optional[str]): Operation ID. If asynchronous creation is used, by this identifier you can later get</span>
 <span class="sd">    		results of creating bonuses.</span>
-<span class="sd">        skip_invalid_items ( Optional[bool]): Validation parameters of objects:</span>
+<span class="sd">        skip_invalid_items (Optional[bool]): Validation parameters of objects:</span>
 <span class="sd">    		* True - Award a bonus if the object with bonus information passed validation. Otherwise, skip the bonus.</span>
 <span class="sd">    		* False - Default behaviour. Stop the operation and don&#39;t award bonuses if at least one object didn&#39;t pass validation.</span>
 <span class="sd">    &quot;&quot;&quot;</span>

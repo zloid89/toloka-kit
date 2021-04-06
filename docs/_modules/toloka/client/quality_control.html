@@ -165,10 +165,10 @@
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">toloka.client.task_distribution_function</span> <span class="kn">import</span> <span class="n">TaskDistributionFunction</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="QualityControl"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.quality_control.QualityControl">[docs]</a><span class="k">class</span> <span class="nc">QualityControl</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Quality control unit settings and pool ID with training tasks</span>
@@ -177,12 +177,12 @@
 <span class="sd">    Quality control consists of rules. All rules work independently.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        training_requirement ( Optional[TrainingRequirement]): Parameters of the training pool that is linked to the pool with the main tasks.</span>
-<span class="sd">        captcha_frequency ( Optional[CaptchaFrequency]): Frequency of captcha display (By default, captcha is not shown):</span>
+<span class="sd">        training_requirement (Optional[TrainingRequirement]): Parameters of the training pool that is linked to the pool with the main tasks.</span>
+<span class="sd">        captcha_frequency (Optional[CaptchaFrequency]): Frequency of captcha display (By default, captcha is not shown):</span>
 <span class="sd">    		LOW - show every 20 tasks.</span>
 <span class="sd">    		MEDIUM, HIGH - show every 10 tasks.</span>
-<span class="sd">        configs ( Optional[List[QualityControlConfig]]): List of quality control units. See QualityControl.QualityControlConfig</span>
-<span class="sd">        checkpoints_config ( Optional[CheckpointsConfig]): Random check majority opinion. Datailed description in QualityControl.CheckpointsConfig.</span>
+<span class="sd">        configs (Optional[List[QualityControlConfig]]): List of quality control units. See QualityControl.QualityControlConfig</span>
+<span class="sd">        checkpoints_config (Optional[CheckpointsConfig]): Random check majority opinion. Datailed description in QualityControl.CheckpointsConfig.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How to set up quality control on new pool.</span>
@@ -222,17 +222,17 @@
 <span class="sd">        to check the answers. In subsequent tasks issue each 25 task with an overlap &quot;5&quot;.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            real_settings ( Optional[Settings]): Checkpoints settings for main tasks.</span>
-<span class="sd">            golden_settings ( Optional[Settings]): Checkpoints settings for golden tasks.</span>
-<span class="sd">            training_settings ( Optional[Settings]): Checkpoints settings for train tasks.</span>
+<span class="sd">            real_settings (Optional[Settings]): Checkpoints settings for main tasks.</span>
+<span class="sd">            golden_settings (Optional[Settings]): Checkpoints settings for golden tasks.</span>
+<span class="sd">            training_settings (Optional[Settings]): Checkpoints settings for train tasks.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="QualityControl.CheckpointsConfig.Settings"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.quality_control.QualityControl.CheckpointsConfig.Settings">[docs]</a>        <span class="k">class</span> <span class="nc">Settings</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
             <span class="sd">&quot;&quot;&quot;Setting for checkpoints</span>
 
 <span class="sd">            Attributes:</span>
-<span class="sd">                target_overlap ( Optional[int]): Overlap in tasks with majority opinion verification.</span>
-<span class="sd">                task_distribution_function ( Optional[TaskDistributionFunction]): Distribution of tasks with majority opinion verification.</span>
+<span class="sd">                target_overlap (Optional[int]): Overlap in tasks with majority opinion verification.</span>
+<span class="sd">                task_distribution_function (Optional[TaskDistributionFunction]): Distribution of tasks with majority opinion verification.</span>
 <span class="sd">            &quot;&quot;&quot;</span>
 
             <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">target_overlap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task_distribution_function</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TaskDistributionFunction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -259,8 +259,8 @@
 <span class="sd">        There may be several conditions, then they are combined using logical And.</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            rules ( Optional[List[RuleConfig]]): Conditions and action if conditions are met.</span>
-<span class="sd">            collector_config ( Optional[CollectorConfig]): Parameters for collecting statistics (for example, the number of task skips in the pool).</span>
+<span class="sd">            rules (Optional[List[RuleConfig]]): Conditions and action if conditions are met.</span>
+<span class="sd">            collector_config (Optional[CollectorConfig]): Parameters for collecting statistics (for example, the number of task skips in the pool).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="QualityControl.QualityControlConfig.RuleConfig"><a class="viewcode-back" href="../../../source/toloka.client.html#toloka.client.quality_control.QualityControl.QualityControlConfig.RuleConfig">[docs]</a>        <span class="k">class</span> <span class="nc">RuleConfig</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
@@ -269,8 +269,8 @@
 <span class="sd">            The values for the conditions are taken from the collector.</span>
 
 <span class="sd">            Attributes:</span>
-<span class="sd">                action ( Optional[RuleAction]): Action if conditions are met (for example, close access to the project).</span>
-<span class="sd">                conditions ( Optional[List[RuleCondition]]): Conditions (for example, skipping 10 sets of tasks in a row).</span>
+<span class="sd">                action (Optional[RuleAction]): Action if conditions are met (for example, close access to the project).</span>
+<span class="sd">                conditions (Optional[List[RuleCondition]]): Conditions (for example, skipping 10 sets of tasks in a row).</span>
 <span class="sd">            &quot;&quot;&quot;</span>
 
             <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">action</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">RuleAction</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">conditions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">RuleCondition</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -291,8 +291,8 @@
         <span class="sd">&quot;&quot;&quot;Parameters of the training pool that is linked to the pool with the main tasks</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            training_pool_id ( Optional[str]): ID of the training pool that is linked to the pool with the main tasks.</span>
-<span class="sd">            training_passing_skill_value ( Optional[int]): The percentage of correct answers in training tasks (from 0 to 100) required</span>
+<span class="sd">            training_pool_id (Optional[str]): ID of the training pool that is linked to the pool with the main tasks.</span>
+<span class="sd">            training_passing_skill_value (Optional[int]): The percentage of correct answers in training tasks (from 0 to 100) required</span>
 <span class="sd">        		for admission to the main tasks. The user&#39;s first responses in tasks are used for counting.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 

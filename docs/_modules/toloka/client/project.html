@@ -164,9 +164,9 @@
 <span class="kn">from</span> <span class="nn">toloka.client.project.task_spec</span> <span class="kn">import</span> <span class="n">TaskSpec</span>
 <span class="kn">from</span> <span class="nn">toloka.client.quality_control</span> <span class="kn">import</span> <span class="n">QualityControl</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="Project"><a class="viewcode-back" href="../../../source/toloka.client.project.html#toloka.client.project.Project">[docs]</a><span class="k">class</span> <span class="nc">Project</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Top-level object in Toloka. All other entities are contained in some project.</span>
@@ -185,20 +185,20 @@
 <span class="sd">    Pools and training pools are related to a project.</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        public_name ( Optional[str]): Name of the project. Visible to users.</span>
-<span class="sd">        public_description ( Optional[str]): Description of the project. Visible to users.</span>
-<span class="sd">        public_instructions ( Optional[str]): Instructions for completing the task. You can use any HTML markup in the instructions.</span>
-<span class="sd">        private_comment ( Optional[str]): Comments about the project. Visible only to the requester.</span>
-<span class="sd">        task_spec ( Optional[TaskSpec]): Parameters for input and output data and the task interface.</span>
-<span class="sd">        assignments_issuing_type ( Optional[AssignmentsIssuingType]): How to assign tasks. The default value is AUTOMATED.</span>
-<span class="sd">        assignments_automerge_enabled ( Optional[bool]): Solve merging identical tasks in the project.</span>
-<span class="sd">        max_active_assignments_count ( Optional[int]): The number of task suites the user can complete simultaneously (“Active” status)</span>
-<span class="sd">        quality_control ( Optional[QualityControl]): The quality control rule.</span>
-<span class="sd">        status ( Optional[ProjectStatus]): Project status.</span>
-<span class="sd">        created ( Optional[datetime]): The UTC date and time the project was created.</span>
-<span class="sd">        id ( Optional[str]): Project ID (assigned automatically).</span>
-<span class="sd">        public_instructions ( Optional[str]): Instructions for completing tasks. You can use any HTML markup in the instructions.</span>
-<span class="sd">        private_comment ( Optional[str]): Comment on the project. Available only to the customer.</span>
+<span class="sd">        public_name (Optional[str]): Name of the project. Visible to users.</span>
+<span class="sd">        public_description (Optional[str]): Description of the project. Visible to users.</span>
+<span class="sd">        public_instructions (Optional[str]): Instructions for completing the task. You can use any HTML markup in the instructions.</span>
+<span class="sd">        private_comment (Optional[str]): Comments about the project. Visible only to the requester.</span>
+<span class="sd">        task_spec (Optional[TaskSpec]): Parameters for input and output data and the task interface.</span>
+<span class="sd">        assignments_issuing_type (Optional[AssignmentsIssuingType]): How to assign tasks. The default value is AUTOMATED.</span>
+<span class="sd">        assignments_automerge_enabled (Optional[bool]): Solve merging identical tasks in the project.</span>
+<span class="sd">        max_active_assignments_count (Optional[int]): The number of task suites the user can complete simultaneously (“Active” status)</span>
+<span class="sd">        quality_control (Optional[QualityControl]): The quality control rule.</span>
+<span class="sd">        status (Optional[ProjectStatus]): Project status.</span>
+<span class="sd">        created (Optional[datetime]): The UTC date and time the project was created.</span>
+<span class="sd">        id (Optional[str]): Project ID (assigned automatically).</span>
+<span class="sd">        public_instructions (Optional[str]): Instructions for completing tasks. You can use any HTML markup in the instructions.</span>
+<span class="sd">        private_comment (Optional[str]): Comment on the project. Available only to the customer.</span>
 
 <span class="sd">    Examples:</span>
 <span class="sd">    How to create a new project.</span>
@@ -239,8 +239,8 @@
 <span class="sd">        Used only then assignments_issuing_type == MAP_SELECTOR</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            title_template ( Optional[str]): Name of the task. Users will see it in the task preview mode.</span>
-<span class="sd">            description_template ( Optional[str]): Brief description of the task. Users will see it in the task preview mode.</span>
+<span class="sd">            title_template (Optional[str]): Name of the task. Users will see it in the task preview mode.</span>
+<span class="sd">            description_template (Optional[str]): Brief description of the task. Users will see it in the task preview mode.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">title_template</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">description_template</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

@@ -164,10 +164,10 @@
 <span class="kn">from</span> <span class="nn">toloka.client.primitives.base</span> <span class="kn">import</span> <span class="n">BaseTolokaObject</span>
 <span class="kn">from</span> <span class="nn">toloka.client.project.template_builder</span> <span class="kn">import</span> <span class="n">TemplateBuilder</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">List</span><span class="p">,</span>
-    <span class="n">Any</span><span class="p">,</span>
+    <span class="n">Dict</span><span class="p">,</span>
     <span class="n">Optional</span><span class="p">,</span>
-    <span class="n">Dict</span>
+    <span class="n">List</span><span class="p">,</span>
+    <span class="n">Any</span>
 <span class="p">)</span>
 <div class="viewcode-block" id="ViewSpec"><a class="viewcode-back" href="../../../../source/toloka.client.project.html#toloka.client.project.view_spec.ViewSpec">[docs]</a><span class="k">class</span> <span class="nc">ViewSpec</span><span class="p">(</span><span class="n">BaseTolokaObject</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Description of the task interface</span>
@@ -179,15 +179,15 @@
         <span class="sd">&quot;&quot;&quot;ViewSpec Settings</span>
 
 <span class="sd">        Attributes:</span>
-<span class="sd">            show_finish ( Optional[bool]): Show the Back to main page button.</span>
-<span class="sd">            show_fullscreen ( Optional[bool]): Show the Expand to fullscreen button.</span>
-<span class="sd">            show_instructions ( Optional[bool]): Show the Instructions button.</span>
-<span class="sd">            show_message ( Optional[bool]): Show the Message for the requester button.</span>
-<span class="sd">            show_reward ( Optional[bool]): Show the price per task page.</span>
-<span class="sd">            show_skip ( Optional[bool]): Show the Skip button.</span>
-<span class="sd">            show_submit ( Optional[bool]): Show the Next button.</span>
-<span class="sd">            show_timer ( Optional[bool]): Show the timer.</span>
-<span class="sd">            show_title ( Optional[bool]): Show the project name in task titles.</span>
+<span class="sd">            show_finish (Optional[bool]): Show the Back to main page button.</span>
+<span class="sd">            show_fullscreen (Optional[bool]): Show the Expand to fullscreen button.</span>
+<span class="sd">            show_instructions (Optional[bool]): Show the Instructions button.</span>
+<span class="sd">            show_message (Optional[bool]): Show the Message for the requester button.</span>
+<span class="sd">            show_reward (Optional[bool]): Show the price per task page.</span>
+<span class="sd">            show_skip (Optional[bool]): Show the Skip button.</span>
+<span class="sd">            show_submit (Optional[bool]): Show the Next button.</span>
+<span class="sd">            show_timer (Optional[bool]): Show the timer.</span>
+<span class="sd">            show_title (Optional[bool]): Show the project name in task titles.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">show_finish</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_fullscreen</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_instructions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_reward</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_skip</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_submit</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_timer</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -226,9 +226,9 @@
 <span class="sd">    https://yandex.ru/support/toloka-requester/?lang=en</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        script ( Optional[str]): JavaScript interface for the task.</span>
-<span class="sd">        markup ( Optional[str]): Task interface.</span>
-<span class="sd">        styles ( Optional[str]): CSS task interface.</span>
+<span class="sd">        script (Optional[str]): JavaScript interface for the task.</span>
+<span class="sd">        markup (Optional[str]): Task interface.</span>
+<span class="sd">        styles (Optional[str]): CSS task interface.</span>
 <span class="sd">        asserts: Linked files such as:</span>
 <span class="sd">    		* CSS styles</span>
 <span class="sd">    		* JavaScript libraries</span>
@@ -275,8 +275,8 @@
 <span class="sd">    template builder components</span>
 
 <span class="sd">    Attributes:</span>
-<span class="sd">        config ( Optional[TemplateBuilder]): A template builder config</span>
-<span class="sd">        core_version ( Optional[str]): Default template components version. Most users will not need to change this parameter.</span>
+<span class="sd">        config (Optional[TemplateBuilder]): A template builder config</span>
+<span class="sd">        core_version (Optional[str]): Default template components version. Most users will not need to change this parameter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ViewSpec</span><span class="o">.</span><span class="n">Settings</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TemplateBuilder</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">core_version</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -284,8 +284,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="o">...</span>
 
-<div class="viewcode-block" id="TemplateBuilderViewSpec.structure"><a class="viewcode-back" href="../../../../source/toloka.client.project.html#toloka.client.project.view_spec.TemplateBuilderViewSpec.structure">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">structure</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span> <span class="o">...</span></div>
+<div class="viewcode-block" id="TemplateBuilderViewSpec.structure"><a class="viewcode-back" href="../../../../source/toloka.client.project.html#toloka.client.project.view_spec.TemplateBuilderViewSpec.structure">[docs]</a>    <span class="k">def</span> <span class="nf">structure</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span> <span class="o">...</span></div>
 
     <span class="nb">type</span> <span class="o">=</span> <span class="o">...</span>
 
