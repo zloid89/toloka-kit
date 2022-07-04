@@ -1,9 +1,6 @@
 name: Functional tests
 
-on:
-  pull_request:
-    branches:
-      - main
+on: workflow_dispatch
 
 jobs:
   build:
@@ -21,5 +18,18 @@ jobs:
         python -m pip install --upgrade pip
         pip install tox tox-gh-actions
     - name: Run tox with Python 3.8
+      id: tests
+      continue-on-error: true
       run: |
         python -m tox -e py38-functional-tests
+    - uses: octokit/request-action@v2.x
+      with:
+        route: POST /repos/{owner}/{repo}/statuses/{sha}
+        owner: toloka
+        repo: toloka-kit
+        sha: ${{ github.sha }}
+        state: ${{ steps.tests.outcome == 'success' && 'success' || 'failure' }}
+        description: pending functional tests run
+        context: Functional tests check
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
