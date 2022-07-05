@@ -31,6 +31,7 @@ UNDOCUMENTED_COMPONENTS = {
     'view.with-label',
     'field.button-checkbox',
     'field.tumbler',
+    'field.map',  # TODO: possibly should be supported
 }
 
 
